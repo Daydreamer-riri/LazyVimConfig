@@ -5,8 +5,8 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap("n", "<B-S>", '"_d', { noremap = true })
-vim.api.nvim_set_keymap("v", "<B-S>", '"_d', { noremap = true })
+vim.api.nvim_set_keymap("n", "<BS>", '"_d', { noremap = true })
+vim.api.nvim_set_keymap("v", "<BS>", '"_d', { noremap = true })
 
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
@@ -26,14 +26,15 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
 
---- Move window
+-- - Move window
 -- keymap.set("n", "sh", "<C-w>h")
 -- keymap.set("n", "sk", "<C-w>k")
 -- keymap.set("n", "sj", "<C-w>j")
 -- keymap.set("n", "sk", "<C-w>k")
 
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)
+-- keymap.set("n", "<C-j>", function()
+--   vim.diagnostic.goto_next()
+-- end, opts)
 
--- keymap.set("i", "<C-<Return>>", "<Esc>o")
+keymap.set({ "n", "v" }, "gh", "^")
+keymap.set({ "v", "n" }, "gl", "$")
