@@ -45,23 +45,7 @@ return {
     },
     setup = {
       eslint = function()
-        -- vim.api.nvim_create_autocmd("BufWritePre", {
-        --   callback = function(ev)
-        --     if require("lapconfig.util").get_active_client_by_name(ev.buf, "eslint") then
-        --       vim.cmd("EslintFixAll")
-        --     end
-        --   end,
-        -- })
-        --
-        -- vim.cmd([[
-        --   autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
-        -- ]])
-
         require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-          -- vim.api.nvim_create_autocmd("BufWritePre", {
-          --   buffer = bufnr,
-          --   command = "EslintFixAll",
-          -- })
           client.server_capabilities.documentRangeFormattingProvider = true
           if client.name == "eslint" then
             client.server_capabilities.documentFormattingProvider = true

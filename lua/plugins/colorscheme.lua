@@ -56,6 +56,15 @@ return {
     end,
   },
   {
+    "sainnhe/everforest",
+    config = function()
+      vim.g.everforest_transparent_background = 1
+      vim.g.everforest_diagnostic_virtual_text = "highlighted"
+      vim.g.everforest_enablie_italic = true
+      vim.g.everforest_current_word = "grey background"
+    end,
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
     priority = 1000,
@@ -74,7 +83,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "everforest",
     },
   },
 }

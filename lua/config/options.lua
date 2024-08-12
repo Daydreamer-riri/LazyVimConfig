@@ -2,10 +2,16 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- vim.opt.clipboard = "unnamedplus"
--- vim.opt.clipboard = ""
 if vim.fn.has("wsl") ~= 1 then
-  vim.opt.shell = "pwsh.exe"
+  if vim.env.POSH_SHELL_VERSION then
+    vim.opt.shell = "pwsh.exe"
+    vim.opt.shellxquote = ""
+    vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
+  end
+
+  if vim.env.NU_VERSION then
+    vim.opt.shell = "nu.exe"
+  end
 end
 
 if vim.fn.has("wsl") == 1 then
