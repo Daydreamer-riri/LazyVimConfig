@@ -11,6 +11,9 @@ if vim.fn.has("wsl") ~= 1 then
 
   if vim.env.NU_VERSION then
     vim.opt.shell = "nu.exe"
+    vim.opt.shellxquote = ""
+    vim.opt.shellquote = ""
+    vim.opt.shellcmdflag = "-c"
   end
 end
 

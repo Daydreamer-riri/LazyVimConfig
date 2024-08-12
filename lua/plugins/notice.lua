@@ -7,7 +7,7 @@ return {
       },
     },
     presets = {
-      -- lsp_doc_border = true,
+      lsp_doc_border = true,
     },
   },
 }
