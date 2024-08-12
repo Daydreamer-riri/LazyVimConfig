@@ -30,29 +30,30 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --     -- more keymaps
 --   end,
 -- })
-require("transparent").setup({
-  -- enable = true,
-  group = {},
-  extra_groups = { -- table/string: additional groups that should be cleared
-    -- "BufferLineTabClose",
-    -- "BufferlineBufferSelected",
-    -- "BufferLineFill",
-    -- "BufferLineBackground",
-    -- "BufferLineSeparator",
-    -- "BufferLineIndicatorSelected",
-    -- "EndOfBuffer",
-    -- "IndentBlanklineChar",
 
-    -- make floating windows transparent
-    -- "LspFloatWinNormal",
-    -- "Normal",
-    "NormalFloat",
-    "FloatBorder",
-    -- "TelescopeNormal",
-    -- "TelescopeBorder",
-    -- "TelescopePromptBorder",
-    -- "SagaBorder",
-    -- "SagaNormal",
-  },
-  -- exclude = {}, -- table: groups you don't want to clear
-})
+-- require("transparent").setup({
+--   enable = true,
+--   group = {},
+--   extra_groups = { -- table/string: additional groups that should be cleared
+--     -- "BufferLineTabClose",
+--     -- "BufferlineBufferSelected",
+--     -- "BufferLineFill",
+--     -- "BufferLineBackground",
+--     -- "BufferLineSeparator",
+--     -- "BufferLineIndicatorSelected",
+--     -- "EndOfBuffer",
+--     -- "IndentBlanklineChar",
+--
+--     -- make floating windows transparent
+--     -- "LspFloatWinNormal",
+--     -- "Normal",
+--     "NormalFloat",
+--     "FloatBorder",
+--     -- "TelescopeNormal",
+--     -- "TelescopeBorder",
+--     -- "TelescopePromptBorder",
+--     -- "SagaBorder",
+--     -- "SagaNormal",
+--   },
+--   -- exclude = {}, -- table: groups you don't want to clear
+-- })

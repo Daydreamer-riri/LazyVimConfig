@@ -3,7 +3,7 @@ return {
     "echasnovski/mini.surround",
     opts = {
       mappings = {
-        add = "ys",
+        -- add = "ys",
         delete = "ds",
         -- find = ";f",
         -- find_left = ";F",
