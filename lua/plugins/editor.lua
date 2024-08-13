@@ -1,5 +1,13 @@
 return {
   {
+    "neo-tree.nvim",
+    opts = {
+      window = {
+        position = "right",
+      },
+    },
+  },
+  {
     "telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
@@ -124,7 +132,7 @@ return {
       }
       opts.extensions = {
         file_browser = {
-          theme = "dropdown",
+          -- theme = "dropdown",
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {

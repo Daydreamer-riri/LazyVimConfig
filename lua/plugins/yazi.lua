@@ -5,13 +5,13 @@ return {
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
-      "<leader>-",
+      "<leader>fy",
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
     {
       -- Open in the current working directory
-      "<leader>cw",
+      "<leader>fY",
       "<cmd>Yazi cwd<cr>",
       desc = "Open the file manager in nvim's working directory",
     },
@@ -29,8 +29,8 @@ return {
     open_for_directories = false,
 
     -- enable these if you are using the latest version of yazi
-    -- use_ya_for_events_reading = true,
-    -- use_yazi_client_id_flag = true,
+    use_ya_for_events_reading = true,
+    use_yazi_client_id_flag = true,
 
     keymaps = {
       show_help = "<f1>",

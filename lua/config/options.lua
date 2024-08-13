@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 if vim.fn.has("wsl") ~= 1 then
-  if vim.env.POSH_SHELL_VERSION then
+  if vim.env.CURRENT_SHELL == "pwsh" then
     vim.opt.shell = "pwsh.exe"
     vim.opt.shellxquote = ""
     vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
