@@ -65,6 +65,12 @@ return {
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      highlight = { enable = false },
+    },
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
     priority = 1000,
