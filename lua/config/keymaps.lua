@@ -29,10 +29,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 -- keymap.set("n", "sj", "<C-w>j")
 -- keymap.set("n", "sk", "<C-w>k")
 
--- keymap.set("n", "<C-j>", function()
---   vim.diagnostic.goto_next()
--- end, opts)
-
 keymap.set({ "n", "v" }, "gh", "^")
 keymap.set({ "v", "n" }, "gl", "$")
 
@@ -40,10 +36,10 @@ keymap.set({ "v", "n" }, "gl", "$")
 -- resizing splits
 -- these keymaps will also accept a range,
 -- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
-vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
-vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
-vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
-vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
+vim.keymap.set("n", "<A-Left>", require("smart-splits").resize_left)
+vim.keymap.set("n", "<A-Down>", require("smart-splits").resize_down)
+vim.keymap.set("n", "<A-Up>", require("smart-splits").resize_up)
+vim.keymap.set("n", "<A-Right>", require("smart-splits").resize_right)
 -- moving between splits
 vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
 vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
