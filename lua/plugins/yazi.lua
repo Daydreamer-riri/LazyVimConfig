@@ -29,8 +29,8 @@ return {
     open_for_directories = false,
 
     -- enable these if you are using the latest version of yazi
-    use_ya_for_events_reading = true,
-    use_yazi_client_id_flag = true,
+    -- use_ya_for_events_reading = true,
+    -- use_yazi_client_id_flag = true,
 
     keymaps = {
       show_help = "<f1>",

@@ -19,6 +19,9 @@ return {
       options = {
         -- mode = "tabs",
         -- separator_style = "slant",
+        indicator = {
+          icon = "▌", -- this should be omitted if indicator style is not 'icon'
+        },
         show_buffer_close_icons = false,
         show_close_icon = false,
       },

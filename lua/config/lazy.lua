@@ -15,7 +15,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- -- import/override with your plugins
     { import = "plugins" },
-    { "xiyaowong/transparent.nvim", lazy = false },
+    -- { "xiyaowong/transparent.nvim", lazy = false },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

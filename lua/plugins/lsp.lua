@@ -3,14 +3,7 @@ return {
   opts = {
     servers = {
       cssls = {},
-      -- somesass_ls = {
-      --   root_dir = function(...)
-      --     return require("lspconfig.util").root_pattern(".git")(...)
-      --   end,
-      --   init_options = {
-      --     workspace = require("lspconfig.util").root_pattern(".git")(...),
-      --   },
-      -- },
+      cssmodules_ls = {},
       eslint = {
         settings = {
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
@@ -54,6 +47,14 @@ return {
           "scss",
         },
       },
+      -- somesass_ls = {
+      --   root_dir = function(...)
+      --     return require("lspconfig.util").root_pattern(".git")(...)
+      --   end,
+      --   init_options = {
+      --     workspace = require("lspconfig.util").root_pattern(".git")(...),
+      --   },
+      -- },
     },
     setup = {
       eslint = function(_, opts)

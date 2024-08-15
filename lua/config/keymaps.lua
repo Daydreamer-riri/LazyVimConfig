@@ -51,3 +51,13 @@ vim.keymap.set("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
 vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
+
+-- vim.keymap.set("n", "<leader>ut", function()
+--   local value = vim.g.everforest_transparent_background
+--   if value == 1 then
+--     vim.g.everforest_transparent_background = 0
+--     vim.list_extend
+--   else
+--     vim.g.everforest_transparent_background = 1
+--   end
+-- end, { noremap = true, desc = "Toggle Transparent" })
