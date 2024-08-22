@@ -24,46 +24,17 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- vim.api.nvim_create_autocmd("LspAttach", {
---   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
---   callback = function(event)
---     local lsp = vim.lsp
---     lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, { border = "rounded" })
---     lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, { border = "rounded" })
---
---     local opts = { buffer = event.buf }
---     local map = vim.keymap.set
---     local lsp_buf = lsp.buf
---
---     map("n", "K", lsp_buf.hover, opts)
---     map("n", "gs", lsp_buf.signature_help, opts)
---     -- more keymaps
---   end,
--- })
-
--- require("transparent").setup({
---   enable = true,
---   group = {},
---   extra_groups = { -- table/string: additional groups that should be cleared
---     -- "BufferLineTabClose",
---     -- "BufferlineBufferSelected",
---     -- "BufferLineFill",
---     -- "BufferLineBackground",
---     -- "BufferLineSeparator",
---     -- "BufferLineIndicatorSelected",
---     -- "EndOfBuffer",
---     -- "IndentBlanklineChar",
---
---     -- make floating windows transparent
---     -- "LspFloatWinNormal",
---     -- "Normal",
---     "NormalFloat",
---     "FloatBorder",
---     -- "TelescopeNormal",
---     -- "TelescopeBorder",
---     -- "TelescopePromptBorder",
---     -- "SagaBorder",
---     -- "SagaNormal",
---   },
---   -- exclude = {}, -- table: groups you don't want to clear
--- })
+-- if vim.fn.has("wsl") ~= 1 then
+--   vim.api.nvim_create_autocmd("FileType", {
+--     pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+--     callback = function()
+--       vim.lsp.start({
+--         name = "cssmodules_ls",
+--         cmd = {
+--           "D:\\Users\\ding.zhao\\AppData\\Local\\fnm_multishells\\54112_1723802932090\\cssmodules-language-server.CMD",
+--         },
+--         root_dir = vim.uv.cwd(),
+--       })
+--     end,
+--   })
+-- end

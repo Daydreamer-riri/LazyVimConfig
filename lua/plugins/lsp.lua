@@ -3,7 +3,16 @@ return {
   opts = {
     servers = {
       cssls = {},
-      cssmodules_ls = {},
+      cssmodules_ls = {
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+        },
+      },
       eslint = {
         settings = {
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
