@@ -18,13 +18,13 @@ if vim.fn.has("wsl") ~= 1 then
 end
 
 if vim.fn.has("wsl") == 1 then
-  vim.api.nvim_create_autocmd("TextYankPost", {
-    callback = function()
-      vim.schedule(function()
-        vim.fn.system("clip.exe", vim.fn.getreg("0"))
-      end)
-    end,
-  })
+  -- vim.api.nvim_create_autocmd("TextYankPost", {
+  --   callback = function()
+  --     vim.schedule(function()
+  --       vim.fn.system("clip.exe", vim.fn.getreg("0"))
+  --     end)
+  --   end,
+  -- })
 
   -- 粘贴缓慢
   -- vim.g.clipboard = {
