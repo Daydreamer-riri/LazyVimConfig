@@ -17,20 +17,6 @@ return {
         settings = {
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
           workingDirectories = { mode = "auto" },
-
-          -- eslint = {
-          --   filetypes = {
-          --     "javascript",
-          --     "typescript",
-          --     "javascriptreact",
-          --     "typescriptreact",
-          --     "json",
-          --     "jsonc",
-          --     "json5",
-          --     "scss",
-          --     "css",
-          --   },
-          -- },
         },
         filetypes = {
           "javascript",
