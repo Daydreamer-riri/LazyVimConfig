@@ -11,10 +11,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    keys = {
-      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-    },
+    keys = {},
     opts = {
       options = {
         -- mode = "tabs",
@@ -27,6 +24,7 @@ return {
       },
     },
   },
+  { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" },
   -- {
   --   "folke/edgy.nvim",
   --   opts = function(_, opts)
