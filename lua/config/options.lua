@@ -41,5 +41,5 @@ if vim.fn.has("wsl") == 1 then
   -- }
 end
 
-vim.o.fsync = false
+-- vim.o.fsync = false
 -- vim.g.neovide_transparency = 0.8

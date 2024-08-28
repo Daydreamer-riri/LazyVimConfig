@@ -1,6 +1,7 @@
 return {
   {
     "ellisonleao/gruvbox.nvim",
+    enabled = false,
     opts = function()
       if vim.g.neovide then
         return {}

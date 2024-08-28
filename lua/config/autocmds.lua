@@ -38,3 +38,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --     end,
 --   })
 -- end
+--
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*",
+  callback = function()
+    vim.bo.fileformat = "unix"
+  end,
+})
