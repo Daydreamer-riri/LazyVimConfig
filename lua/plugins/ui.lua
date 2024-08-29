@@ -26,8 +26,8 @@ return {
       return {
         chunk = {
           enable = true,
-          -- duration = 5,
-          delay = 0,
+          duration = 50,
+          delay = 100,
         },
         indent = {
           enable = true,
@@ -48,12 +48,12 @@ return {
     "dashboard-nvim",
     opts = function(_, opts)
       local logo = [[
-██╗  ██╗██╗   ██████╗ ██╗██████╗ ██╗
-██║  ██║██║   ██╔══██╗██║██╔══██╗██║
-███████║██║   ██████╔╝██║██████╔╝██║
-██╔══██║██║   ██╔══██╗██║██╔══██╗██║
-██║  ██║██║▄█╗██║  ██║██║██║  ██║██║
-╚═╝  ╚═╝╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝
+██╗  ██╗██╗     ██████╗ ██╗██████╗ ██╗
+██║  ██║██║     ██╔══██╗██║██╔══██╗██║
+███████║██║     ██████╔╝██║██████╔╝██║
+██╔══██║██║     ██╔══██╗██║██╔══██╗██║
+██║  ██║██║▄█╗  ██║  ██║██║██║  ██║██║
+╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝
       ]]
       logo = string.rep("\n", 8) .. logo .. "\n\n"
       opts.config.header = vim.split(logo, "\n")
@@ -82,6 +82,28 @@ return {
         end,
       })
     end,
+  },
+  {
+    "f-person/git-blame.nvim",
+    opts = function(_, opts)
+      LazyVim.toggle.map("<leader>ug", {
+        name = "Git Blame",
+        get = function()
+          return vim.g.gitblame_enabled
+        end,
+        set = function(state)
+          vim.g.gitblame_enabled = state
+        end,
+      })
+
+      opts.virtual_text_column = 80
+      -- opts.schedule_event = "CursorHold"
+      -- opts.clear_event = "CursorHold"
+    end,
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    opts = {},
   },
   -- {
   --   "folke/edgy.nvim",
