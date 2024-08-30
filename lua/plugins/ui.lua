@@ -15,26 +15,26 @@ return {
     },
   },
   { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
-  },
-  {
-    "shellRaining/hlchunk.nvim",
-    event = "LazyFile",
-    opts = function()
-      return {
-        chunk = {
-          enable = true,
-          duration = 50,
-          delay = 100,
-        },
-        indent = {
-          enable = true,
-        },
-      }
-    end,
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   -- enabled = false,
+  --   opts = {
+  --     scope = { enabled = false },
+  --   },
+  -- },
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = "LazyFile",
+  --   opts = function()
+  --     return {
+  --       chunk = {
+  --         enable = true,
+  --         duration = 200,
+  --         delay = 250,
+  --       },
+  --     }
+  --   end,
+  -- },
   {
     "DNLHC/glance.nvim",
     keys = {
@@ -96,7 +96,6 @@ return {
         end,
       })
 
-      opts.virtual_text_column = 80
       -- opts.schedule_event = "CursorHold"
       -- opts.clear_event = "CursorHold"
     end,
