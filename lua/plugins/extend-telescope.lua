@@ -158,19 +158,21 @@ return {
       },
     },
     config = function(_, opts)
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
       local telescope = require("telescope")
       local actions = require("telescope.actions")
       local fb_actions = require("telescope").extensions.file_browser.actions
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-        mappings = {
-          n = {},
-        },
+        -- layout_strategy = "horizontal",
+        -- layout_config = { prompt_position = "top" },
+        -- sorting_strategy = "ascending",
+        -- winblend = 0,
+        -- mappings = {
+        --   n = {},
+        -- },
       })
       opts.pickers = {
         diagnostics = {

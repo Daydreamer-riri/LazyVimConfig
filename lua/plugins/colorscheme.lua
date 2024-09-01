@@ -59,12 +59,7 @@ return {
   {
     "sainnhe/everforest",
     config = function()
-      -- if vim.g.transparent_enabled then
-      --   vim.g.everforest_transparent_background = 1
-      -- else
-      --   vim.g.everforest_transparent_background = 0
-      -- end
-      vim.g.everforest_transparent_background = 1
+      vim.g.everforest_transparent_background = 2
       vim.g.everforest_diagnostic_virtual_text = "highlighted"
       vim.g.everforest_enablie_italic = true
       vim.g.everforest_current_word = "grey background"
@@ -73,6 +68,7 @@ return {
   },
   {
     "craftzdog/solarized-osaka.nvim",
+    enabled = false,
     lazy = true,
     priority = 1000,
     opts = function()
@@ -83,6 +79,7 @@ return {
   },
   {
     "catppuccin/nvim",
+    enabled = false,
     opts = {
       transparent_background = true,
     },

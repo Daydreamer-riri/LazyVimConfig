@@ -57,20 +57,25 @@ return {
     },
   },
   {
+    "Aasim-A/scrollEOF.nvim",
+    event = { "CursorMoved", "WinScrolled" },
+    opts = {},
+  },
+  {
     "chrisgrieser/nvim-spider",
     keys = {
       {
-        "e",
+        "<A-e>",
         "<cmd>lua require('spider').motion('e')<CR>",
         mode = { "n", "o", "x" },
       },
       {
-        "w",
+        "<A-w>",
         "<cmd>lua require('spider').motion('w')<CR>",
         mode = { "n", "o", "x" },
       },
       {
-        "b",
+        "<A-b>",
         "<cmd>lua require('spider').motion('b')<CR>",
         mode = { "n", "o", "x" },
       },

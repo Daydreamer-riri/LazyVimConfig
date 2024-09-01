@@ -14,27 +14,18 @@ return {
       },
     },
   },
-  { "folke/noice.nvim", enabled = true, commit = "d9328ef903168b6f52385a751eb384ae7e906c6f" },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   -- enabled = false,
-  --   opts = {
-  --     scope = { enabled = false },
-  --   },
-  -- },
-  -- {
-  --   "shellRaining/hlchunk.nvim",
-  --   event = "LazyFile",
-  --   opts = function()
-  --     return {
-  --       chunk = {
-  --         enable = true,
-  --         duration = 200,
-  --         delay = 250,
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    "folke/noice.nvim",
+    enabled = true,
+    commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
+    opts = {
+      lsp = {
+        hover = {
+          silent = true,
+        },
+      },
+    },
+  },
   {
     "DNLHC/glance.nvim",
     keys = {
@@ -95,25 +86,18 @@ return {
           vim.g.gitblame_enabled = state
         end,
       })
-
-      -- opts.schedule_event = "CursorHold"
-      -- opts.clear_event = "CursorHold"
     end,
   },
   {
     "petertriho/nvim-scrollbar",
     opts = {},
   },
-  -- {
-  --   "folke/edgy.nvim",
-  --   opts = function(_, opts)
-  --     local left = opts.left
-  --     local right = opts.right
-  --     opts.left = right
-  --     opts.right = left
-  --     opts.animate = {
-  --       enabled = false,
-  --     }
-  --   end,
-  -- },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.options.section_separators = { right = "", left = "" }
+      opts.options.component_separators = { right = "", left = "" }
+    end,
+  },
 }
