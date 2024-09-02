@@ -23,17 +23,21 @@ return {
       desc = "Resume the last yazi session",
     },
   },
-  ---@type YaziConfig
-  opts = {
-    -- if you want to open yazi instead of netrw, see below for more info
-    open_for_directories = false,
+  opts = function(_, opts)
+    vim.api.nvim_set_hl(0, "YaziFloat", { link = "NormalFloat", default = true })
+    return vim.tbl_extend("force", opts, {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      open_multiple_tabs = true,
 
-    -- enable these if you are using the latest version of yazi
-    -- use_ya_for_events_reading = true,
-    -- use_yazi_client_id_flag = true,
+      -- enable these if you are using the latest version of yazi
+      use_ya_for_events_reading = true,
+      use_yazi_client_id_flag = true,
+      highlight_hovered_buffers_in_same_directory = true,
 
-    keymaps = {
-      show_help = "<f1>",
-    },
-  },
+      keymaps = {
+        show_help = "<f1>",
+      },
+    })
+  end,
 }
