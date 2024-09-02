@@ -12,6 +12,11 @@ return {
         next = "]x",
         prev = "[x",
       },
+      highlights = {
+        incoming = "DiffAdd",
+        current = "DiffChange",
+        ancestor = "DiffDelete",
+      },
     },
     keys = {
       {
