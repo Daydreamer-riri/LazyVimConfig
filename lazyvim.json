@@ -5,7 +5,6 @@
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.inc-rename",
-    "lazyvim.plugins.extras.editor.navic",
     "lazyvim.plugins.extras.editor.outline",
     "lazyvim.plugins.extras.editor.refactoring",
     "lazyvim.plugins.extras.editor.telescope",

@@ -9,20 +9,20 @@ return {
         ["neotest-jest"] = {
           jestConfigFile = function(file)
             if string.find(file, "/packages/") then
-              return string.match(file, "(.-/[^/]+/)src") .. "jest.config.js"
+              return string.match(file, "(.-/[^/]+/)(src|__tests__)") .. "jest.config.js"
             end
             if string.find(file, "/projects/") then
-              return string.match(file, "(.-/[^/]+/)src") .. "jest.config.js"
+              return string.match(file, "(.-/[^/]+/)(src|__tests__)") .. "jest.config.js"
             end
 
             return vim.fn.getcwd() .. "/jest.config.js"
           end,
           cwd = function(file)
             if string.find(file, "/packages/") then
-              return string.match(file, "(.-/[^/]+/)src")
+              return string.match(file, "(.-/[^/]+/)(src|__tests__)")
             end
             if string.find(file, "/projects/") then
-              return string.match(file, "(.-/[^/]+/)src")
+              return string.match(file, "(.-/[^/]+/)(src|__tests__)")
             end
             return vim.fn.getcwd()
           end,
