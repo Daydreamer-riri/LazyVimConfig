@@ -12,6 +12,7 @@ return {
           "typescriptreact",
           "typescript.tsx",
         },
+        root_dir = vim.uv.cwd,
       },
       eslint = {
         settings = {

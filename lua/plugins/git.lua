@@ -1,8 +1,8 @@
 return {
   {
-    "akinsho/git-conflict.nvim",
+    "daydreamer-riri/git-conflict.nvim",
     lazy = false,
-    version = "*",
+    -- version = "*",
     opts = {
       default_mappings = {
         ours = "<leader>ho",
