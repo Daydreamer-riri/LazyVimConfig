@@ -58,6 +58,12 @@ return {
     "lewis6991/gitsigns.nvim",
     keys = {
       {
+        "<leader>h",
+        "",
+        desc = "+git hunk",
+        mode = { "n", "v" },
+      },
+      {
         "<leader>hb",
         "<cmd>Gitsigns blame_line<cr>",
         desc = "Blame Line",
@@ -86,6 +92,11 @@ return {
         "<leader>hu",
         "<cmd>Gitsigns undo_stage_hunk<cr>",
         desc = "Undo Stage Hunk",
+      },
+      {
+        "<leader>hp",
+        "<cmd>Gitsigns preview_hunk_inline<cr>",
+        desc = "Preview Hunk Inline",
       },
     },
   },
