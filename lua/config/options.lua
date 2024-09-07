@@ -43,3 +43,4 @@ end
 
 -- vim.o.fsync = false
 -- vim.g.neovide_transparency = 0.8
+vim.o.shellslash = true

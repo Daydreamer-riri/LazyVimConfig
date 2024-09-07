@@ -19,7 +19,9 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    -- enabled = false,
     -- lazy = false,
+    commit = "33c9ac216df66a39ec393aa29e1bc79e0c140319",
     version = false,
     opts = {
       provider = "copilot",
