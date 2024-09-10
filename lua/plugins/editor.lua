@@ -16,7 +16,7 @@ return {
     "neo-tree.nvim",
     opts = function(_, opts)
       opts.window.position = "right"
-      opts.filesystem.bind_to_cwd = true
+      opts.filesystem.bind_to_cwd = false
       opts.filesystem.filtered_items = {
         hide_dotfiles = false,
         hide_gitignored = false,

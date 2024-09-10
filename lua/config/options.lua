@@ -14,6 +14,7 @@ if vim.fn.has("wsl") ~= 1 then
     vim.opt.shellxquote = ""
     vim.opt.shellquote = ""
     vim.opt.shellcmdflag = "-c"
+    -- vim.o.shellslash = true
   end
 end
 
@@ -43,4 +44,3 @@ end
 
 -- vim.o.fsync = false
 -- vim.g.neovide_transparency = 0.8
-vim.o.shellslash = true
