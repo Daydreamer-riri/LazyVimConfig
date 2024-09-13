@@ -28,6 +28,10 @@ return {
   },
   {
     "DNLHC/glance.nvim",
+    opts = function()
+      vim.api.nvim_set_hl(0, "GlanceListNormal", { link = "NormalFloat" })
+      vim.api.nvim_set_hl(0, "GlancePreviewNormal", { link = "NormalFloat" })
+    end,
     keys = {
       { "gpd", "<CMD>Glance definitions<CR>", mode = { "n" }, desc = "Glance definitions" },
       { "gpr", "<CMD>Glance references<CR>", mode = { "n" }, desc = "Glance references" },
@@ -98,6 +102,17 @@ return {
     opts = function(_, opts)
       opts.options.section_separators = { right = "", left = "" }
       opts.options.component_separators = { right = "", left = "" }
+    end,
+  },
+  {
+    "echasnovski/mini.animate",
+    opts = function(_, opts)
+      -- vim.api.nvim_set_hl(0, "MiniAnimateNormalFloat", { bg = nil })
+      local animate = require("mini.animate")
+      opts.close = { enable = false }
+      opts.open = { enable = false }
+      opts.scroll.timing = animate.gen_timing.linear({ duration = 100, unit = "total" })
+      opts.cursor = { timing = animate.gen_timing.linear({ duration = 100, unit = "total" }) }
     end,
   },
 }

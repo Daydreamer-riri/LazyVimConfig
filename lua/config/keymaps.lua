@@ -12,7 +12,7 @@ keymap.set("n", "-", "<C-x>")
 keymap.set("n", "dw", 'vb"_d')
 
 --- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-a>", "<Cmd>lua MiniAnimate.execute_after('scroll', 'normal! gg<S-v>G')<CR>")
 
 -- New tab
 -- keymap.set("n", "te", ":tabedit", opts)

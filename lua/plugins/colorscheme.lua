@@ -18,44 +18,16 @@ return {
       }
     end,
   },
-  -- {
-  --   "sainnhe/gruvbox-material",
-  --   config = function()
-  --     if vim.g.neovide then
-  --       return
-  --     end
-  --     vim.g.gruvbox_material_transparent_background = 2
-  --     vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
-  --     vim.g.gruvbox_material_enablie_italic = true
-  --
-  --     require("transparent").setup({
-  --       enable = true,
-  --       group = {},
-  --       extra_groups = { -- table/string: additional groups that should be cleared
-  --         -- "BufferLineTabClose",
-  --         -- "BufferlineBufferSelected",
-  --         -- "BufferLineFill",
-  --         -- "BufferLineBackground",
-  --         -- "BufferLineSeparator",
-  --         -- "BufferLineIndicatorSelected",
-  --         -- "EndOfBuffer",
-  --         -- "IndentBlanklineChar",
-  --
-  --         -- make floating windows transparent
-  --         -- "LspFloatWinNormal",
-  --         -- "Normal",
-  --         "NormalFloat",
-  --         "FloatBorder",
-  --         -- "TelescopeNormal",
-  --         -- "TelescopeBorder",
-  --         -- "TelescopePromptBorder",
-  --         -- "SagaBorder",
-  --         -- "SagaNormal",
-  --       },
-  --       -- exclude = {}, -- table: groups you don't want to clear
-  --     })
-  --   end,
-  -- },
+  {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.g.gruvbox_material_transparent_background = 2
+      vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
+      vim.g.gruvbox_material_enablie_italic = true
+      vim.g.gruvbox_material_current_word = "grey background"
+      vim.g.gruvbox_material_float_style = "dim"
+    end,
+  },
   {
     "sainnhe/everforest",
     config = function()

@@ -131,4 +131,13 @@ return {
       { "<S-Tab>", false, mode = { "i", "s" } },
     },
   },
+  {
+    "mg979/vim-visual-multi",
+  },
+  {
+    "stevearc/overseer.nvim",
+    opts = {
+      templates = { "builtin", "eslint" },
+    },
+  },
 }
