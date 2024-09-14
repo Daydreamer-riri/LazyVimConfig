@@ -68,11 +68,11 @@ return {
         end)
       end,
       cssmodules_ls = function()
-        require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-          if client.name == "cssmodules_ls" then
-            client.server_capabilities.definitionProvider = false
-          end
-        end)
+        -- require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+        --   if client.name == "cssmodules_ls" then
+        --     client.server_capabilities.definitionProvider = false
+        --   end
+        -- end)
       end,
     },
   },

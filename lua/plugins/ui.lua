@@ -106,13 +106,14 @@ return {
   },
   {
     "echasnovski/mini.animate",
+    enabled = vim.g.neovide ~= true,
     opts = function(_, opts)
       -- vim.api.nvim_set_hl(0, "MiniAnimateNormalFloat", { bg = nil })
       local animate = require("mini.animate")
       opts.close = { enable = false }
       opts.open = { enable = false }
-      opts.scroll.timing = animate.gen_timing.linear({ duration = 100, unit = "total" })
-      opts.cursor = { timing = animate.gen_timing.linear({ duration = 100, unit = "total" }) }
+      opts.scroll.timing = animate.gen_timing.linear({ duration = 80, unit = "total" })
+      opts.cursor = { timing = animate.gen_timing.linear({ duration = 80, unit = "total" }) }
     end,
   },
 }

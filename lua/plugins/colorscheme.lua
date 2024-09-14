@@ -1,3 +1,4 @@
+local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "ellisonleao/gruvbox.nvim",
@@ -21,7 +22,7 @@ return {
   {
     "sainnhe/gruvbox-material",
     config = function()
-      vim.g.gruvbox_material_transparent_background = 2
+      vim.g.gruvbox_material_transparent_background = transparent_mode
       vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
       vim.g.gruvbox_material_enablie_italic = true
       vim.g.gruvbox_material_current_word = "grey background"
@@ -31,7 +32,7 @@ return {
   {
     "sainnhe/everforest",
     config = function()
-      vim.g.everforest_transparent_background = 2
+      vim.g.everforest_transparent_background = transparent_mode
       vim.g.everforest_diagnostic_virtual_text = "highlighted"
       vim.g.everforest_enablie_italic = true
       vim.g.everforest_current_word = "grey background"
