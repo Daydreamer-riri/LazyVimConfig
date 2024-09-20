@@ -52,6 +52,14 @@ return {
         "<cmd>DiffviewOpen<cr>",
         desc = "open diffview",
       },
+      {
+        "<leader>hh",
+        function()
+          local file_path = vim.fn.expand("%")
+          vim.cmd("DiffviewFileHistory " .. file_path)
+        end,
+        desc = "open current file history",
+      },
     },
   },
   {
