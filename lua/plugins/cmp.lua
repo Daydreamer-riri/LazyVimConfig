@@ -20,16 +20,31 @@ return {
     },
     opts = function(_, opts)
       local cmp = require("cmp")
+      local types = require("cmp.types")
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-i>"] = cmp.mapping.select_next_item(),
+        ["<C-n>"] = function()
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+          else
+            cmp.complete()
+          end
+        end,
+        ["<C-p>"] = function()
+          if cmp.visible() then
+            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+          else
+            cmp.complete()
+          end
+        end,
       })
+
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
       local compare = require("cmp.config.compare")
-      local types = require("cmp.types")
 
       opts.sorting.comparators = {
         deprio(types.lsp.CompletionItemKind.Snippet),

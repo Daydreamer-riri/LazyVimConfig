@@ -44,3 +44,13 @@ end
 
 -- vim.o.fsync = false
 -- vim.g.neovide_transparency = 0.8
+if vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  vim.o.guifont = "Cascadia Code NF,Cascadia Next SC:h14"
+  vim.g.neovide_theme = "dark"
+end
+
+vim.opt.title = true
+local cwd = vim.fn.getcwd()
+local cwd_folder_name = vim.fn.fnamemodify(cwd, ":t")
+vim.opt.titlestring = cwd_folder_name

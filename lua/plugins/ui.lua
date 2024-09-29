@@ -90,6 +90,7 @@ return {
           vim.g.gitblame_enabled = state
         end,
       })
+      vim.g.gitblame_enabled = false
     end,
   },
   {
