@@ -24,6 +24,9 @@ return {
           silent = true,
         },
       },
+      presets = {
+        lsp_doc_border = true,
+      },
     },
   },
   {
@@ -116,5 +119,19 @@ return {
       opts.scroll.timing = animate.gen_timing.linear({ duration = 80, unit = "total" })
       opts.cursor = { timing = animate.gen_timing.linear({ duration = 80, unit = "total" }) }
     end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = {
+        width = 200,
+      },
+      plugins = {
+        twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+      },
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
   },
 }

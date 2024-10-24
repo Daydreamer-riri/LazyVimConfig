@@ -60,6 +60,11 @@ return {
         compare.length,
         compare.order,
       }
+
+      -- local window = require("cmp.config.window")
+      -- opts.window = opts.window or {}
+      -- opts.window.completion = window.bordered({ winhighlight = "Normal:Normal" })
+      -- opts.window.documentation = window.bordered()
     end,
   },
   {

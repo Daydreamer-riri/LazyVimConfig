@@ -2,20 +2,20 @@ local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    enabled = false,
+    -- enabled = false,
     opts = function()
       if vim.g.neovide then
         return {}
       end
       return {
         transparent_mode = true,
-        overrides = {
-          ["@string"] = { fg = "#d8a657" },
-        },
-        palette_overrides = {
-          bright_red = "#ea6962",
-          bright_green = "#a9b665",
-        },
+        -- overrides = {
+        --   ["@string"] = { fg = "#d8a657" },
+        -- },
+        -- palette_overrides = {
+        --   bright_red = "#ea6962",
+        --   bright_green = "#a9b665",
+        -- },
       }
     end,
   },
@@ -27,6 +27,7 @@ return {
       vim.g.gruvbox_material_enablie_italic = true
       vim.g.gruvbox_material_current_word = "grey background"
       vim.g.gruvbox_material_float_style = "dim"
+      vim.g.gruvbox_material_foreground = "mix"
     end,
   },
   {
@@ -60,6 +61,31 @@ return {
     enabled = false,
     opts = {
       transparent_background = true,
+    },
+  },
+  {
+    "projekt0n/github-nvim-theme",
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      variant = "moon",
+    },
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    opts = {
+      theme = "lotus",
+    },
+  },
+  {
+    "xero/miasma.nvim",
+  },
+  {
+    "2nthony/vitesse.nvim",
+    dependencies = {
+      "tjdevries/colorbuddy.nvim",
     },
   },
   {
