@@ -233,11 +233,16 @@ return {
             },
           },
         },
+        package_info = {
+          -- Optional theme (the extension doesn't set a default theme)
+          theme = "ivy",
+        },
       }
 
       telescope.setup(opts)
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
+      require("telescope").load_extension("package_info")
     end,
   },
 }
