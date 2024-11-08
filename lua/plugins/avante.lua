@@ -21,10 +21,10 @@ return {
     event = "VeryLazy",
     -- enabled = false,
     -- lazy = false,
-    commit = "33c9ac216df66a39ec393aa29e1bc79e0c140319",
     version = false,
     opts = {
       provider = "copilot",
+      auto_suggestions_provider = "copilot",
       -- add any opts here
       behaviour = {
         auto_suggestions = true, -- Experimental stage
@@ -43,6 +43,15 @@ return {
         -- required for Windows users
         use_absolute_path = true,
       },
+      -- copilot = {
+      --   endpoint = "https://api.githubcopilot.com",
+      --   model = "claude-3-5-sonnet-20241022",
+      --   proxy = nil, -- [protocol://]host[:port] Use this proxy
+      --   allow_insecure = false, -- Allow insecure server connections
+      --   timeout = 30000, -- Timeout in milliseconds
+      --   temperature = 0,
+      --   max_tokens = 4096,
+      -- },
     },
     -- if you want to download pre-built binary, then pass source=false. Make sure to follow instruction above.
     -- Also note that downloading prebuilt binary is a lot faster comparing to compiling from source.

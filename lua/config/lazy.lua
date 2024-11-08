@@ -43,4 +43,5 @@ require("lazy").setup({
       },
     },
   },
+  "VidocqH/lsp-lens.nvim",
 })

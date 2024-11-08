@@ -29,6 +29,8 @@ return {
       vim.g.gruvbox_material_float_style = "dim"
       vim.g.gruvbox_material_foreground = "mix"
     end,
+    lazy = false,
+    priority = 1000,
   },
   {
     "sainnhe/everforest",

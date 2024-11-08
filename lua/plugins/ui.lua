@@ -138,6 +138,7 @@ return {
     "vuki656/package-info.nvim",
     opts = {
       package_manager = "pnpm",
+      autostart = false,
     },
     keys = {
       {
