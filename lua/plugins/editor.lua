@@ -140,4 +140,5 @@ return {
       templates = { "builtin", "eslint" },
     },
   },
+  { "Darazaki/indent-o-matic" },
 }

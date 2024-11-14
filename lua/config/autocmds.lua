@@ -20,7 +20,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "markdown",
   },
   callback = function()
-    vim.b.autoformat = false
+    local eslint_config_file = "eslint.config.js"
+    local rood_dir = vim.fn.getcwd()
+    if vim.loop.fs_stat(rood_dir .. "/" .. eslint_config_file) then
+      vim.b.autoformat = false
+    end
   end,
 })
 

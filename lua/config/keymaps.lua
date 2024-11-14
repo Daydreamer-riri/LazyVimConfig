@@ -61,3 +61,5 @@ vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 --     vim.g.everforest_transparent_background = 1
 --   end
 -- end, { noremap = true, desc = "Toggle Transparent" })
+
+vim.keymap.del("n", "<leader>gl")

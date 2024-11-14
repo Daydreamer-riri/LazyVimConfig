@@ -1,5 +1,19 @@
 return {
   {
+    "folke/snacks.nvim",
+    lazy = false,
+    opts = function()
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          print("---------------------------------------------")
+          -- vim.api.nvim_set_hl(0, "SnacksNormal", { guibg = nil })
+          vim.cmd("highlight SnacksNormal guibg=NONE")
+        end,
+      })
+    end,
+  },
+  {
     "akinsho/bufferline.nvim",
     keys = {},
     opts = {
@@ -81,21 +95,21 @@ return {
       })
     end,
   },
-  {
-    "f-person/git-blame.nvim",
-    opts = function(_, opts)
-      LazyVim.toggle.map("<leader>ug", {
-        name = "Git Blame",
-        get = function()
-          return vim.g.gitblame_enabled
-        end,
-        set = function(state)
-          vim.g.gitblame_enabled = state
-        end,
-      })
-      vim.g.gitblame_enabled = false
-    end,
-  },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   opts = function(_, opts)
+  --     LazyVim.toggle.map("<leader>ug", {
+  --       name = "Git Blame",
+  --       get = function()
+  --         return vim.g.gitblame_enabled
+  --       end,
+  --       set = function(state)
+  --         vim.g.gitblame_enabled = state
+  --       end,
+  --     })
+  --     vim.g.gitblame_enabled = false
+  --   end,
+  -- },
   {
     "petertriho/nvim-scrollbar",
     opts = {},
