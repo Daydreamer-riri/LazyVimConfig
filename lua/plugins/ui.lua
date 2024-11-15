@@ -30,7 +30,7 @@ return {
   },
   {
     "folke/noice.nvim",
-    enabled = true,
+    -- enabled = true,
     commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
     opts = {
       lsp = {
@@ -38,9 +38,9 @@ return {
           silent = true,
         },
       },
-      presets = {
-        lsp_doc_border = true,
-      },
+      -- presets = {
+      --   lsp_doc_border = true,
+      -- },
     },
   },
   {
