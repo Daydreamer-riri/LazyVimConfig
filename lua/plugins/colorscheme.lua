@@ -2,7 +2,7 @@ local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "ellisonleao/gruvbox.nvim",
-    -- enabled = false,
+    enabled = false,
     opts = function()
       if vim.g.neovide then
         return {}
@@ -28,12 +28,20 @@ return {
       vim.g.gruvbox_material_current_word = "grey background"
       vim.g.gruvbox_material_float_style = "dim"
       vim.g.gruvbox_material_foreground = "mix"
+      vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+        pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "NormalFloat", { guibg = nil })
+          vim.api.nvim_set_hl(0, "FloatBorder", { guibg = nil })
+        end,
+      })
     end,
     lazy = false,
     priority = 1000,
   },
   {
     "sainnhe/everforest",
+    enabled = false,
     config = function()
       vim.g.everforest_transparent_background = transparent_mode
       vim.g.everforest_diagnostic_virtual_text = "highlighted"
@@ -44,6 +52,7 @@ return {
   },
   {
     "scottmckendry/cyberdream.nvim",
+    enabled = false,
     opts = {
       transparent = true,
       italic_comments = true,
@@ -52,6 +61,7 @@ return {
   },
   {
     "craftzdog/solarized-osaka.nvim",
+    enabled = false,
     opts = function()
       return {
         transparent = true,
@@ -67,9 +77,11 @@ return {
   },
   {
     "projekt0n/github-nvim-theme",
+    enabled = false,
   },
   {
     "rose-pine/neovim",
+    enabled = false,
     name = "rose-pine",
     opts = {
       variant = "moon",
@@ -77,15 +89,18 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     opts = {
       theme = "lotus",
     },
   },
   {
     "xero/miasma.nvim",
+    enabled = false,
   },
   {
     "2nthony/vitesse.nvim",
+    enabled = false,
     dependencies = {
       "tjdevries/colorbuddy.nvim",
     },

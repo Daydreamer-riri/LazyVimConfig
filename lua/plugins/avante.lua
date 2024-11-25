@@ -20,7 +20,7 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     -- enabled = false,
-    -- lazy = false,
+    lazy = true,
     version = false,
     opts = {
       provider = "copilot",

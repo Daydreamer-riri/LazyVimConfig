@@ -1,16 +1,38 @@
 return {
   {
     "folke/snacks.nvim",
-    lazy = false,
     opts = function()
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "*",
-        callback = function()
-          print("---------------------------------------------")
-          -- vim.api.nvim_set_hl(0, "SnacksNormal", { guibg = nil })
-          vim.cmd("highlight SnacksNormal guibg=NONE")
-        end,
-      })
+      local Snacks = require("snacks")
+      return {
+        dashboard = {
+          sections = {
+            { section = "header" },
+            -- {
+            --   pane = 2,
+            --   section = "terminal",
+            --   cmd = "colorscript -e square",
+            --   height = 5,
+            --   padding = 1,
+            -- },
+            { section = "keys", gap = 1, padding = 1 },
+            { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+            { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+            {
+              pane = 2,
+              icon = " ",
+              title = "Git Status",
+              section = "terminal",
+              enabled = Snacks.git.get_root() ~= nil,
+              cmd = "git status --short --branch --renames",
+              height = 5,
+              padding = 1,
+              ttl = 5 * 60,
+              indent = 3,
+            },
+            { section = "startup" },
+          },
+        },
+      }
     end,
   },
   {
@@ -31,16 +53,16 @@ return {
   {
     "folke/noice.nvim",
     -- enabled = true,
-    commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
+    -- commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
     opts = {
       lsp = {
         hover = {
           silent = true,
         },
       },
-      -- presets = {
-      --   lsp_doc_border = true,
-      -- },
+      presets = {
+        lsp_doc_border = true,
+      },
     },
   },
   {
@@ -55,21 +77,6 @@ return {
       { "gpy", "<CMD>Glance type_definitions<CR>", mode = { "n" }, desc = "Glance type definitions" },
       { "gpi", "<CMD>Glance implementations<CR>", mode = { "n" }, desc = "Glance implementations" },
     },
-  },
-  {
-    "dashboard-nvim",
-    opts = function(_, opts)
-      local logo = [[
-██╗  ██╗██╗     ██████╗ ██╗██████╗ ██╗
-██║  ██║██║     ██╔══██╗██║██╔══██╗██║
-███████║██║     ██████╔╝██║██████╔╝██║
-██╔══██║██║     ██╔══██╗██║██╔══██╗██║
-██║  ██║██║▄█╗  ██║  ██║██║██║  ██║██║
-╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝
-      ]]
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
   },
   {
     "b0o/incline.nvim",

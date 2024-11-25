@@ -9,6 +9,7 @@ return {
     -- "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
   },
   enabled = true,
+  event = "VeryLazy",
   build = function()
     require("gitlab.server").build(true)
   end, -- Builds the Go binary

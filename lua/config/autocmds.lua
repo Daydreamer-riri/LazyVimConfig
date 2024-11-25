@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "sass",
     "scss",
     "markdown",
+    "yaml",
   },
   callback = function()
     local eslint_config_file = "eslint.config.js"
