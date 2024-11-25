@@ -62,9 +62,14 @@ return {
       }
 
       -- local window = require("cmp.config.window")
-      -- opts.window = opts.window or {}
+      opts.window = opts.window or {}
       -- opts.window.completion = window.bordered({ winhighlight = "Normal:Normal" })
-      -- opts.window.documentation = window.bordered()
+      -- opts.window.documentation = window.bordered({
+      --   winhighlight = "Normal:Pmenu",
+      -- })
+      opts.window.documentation = {
+        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
+      }
     end,
   },
   {
