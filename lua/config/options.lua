@@ -54,3 +54,8 @@ vim.opt.title = true
 local cwd = vim.fn.getcwd()
 local cwd_folder_name = vim.fn.fnamemodify(cwd, ":t")
 vim.opt.titlestring = cwd_folder_name
+
+local _border = "rounded"
+vim.diagnostic.config({
+  float = { border = _border },
+})
