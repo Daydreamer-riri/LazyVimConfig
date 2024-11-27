@@ -19,7 +19,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    -- enabled = false,
+    enabled = false,
     lazy = true,
     version = false,
     opts = {

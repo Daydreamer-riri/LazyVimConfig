@@ -1,3 +1,9 @@
+local enabled = false
+
+if vim.env.GITLAB_TOKEN then
+  enabled = true
+end
+
 return {
   "harrisoncramer/gitlab.nvim",
   branch = "390-plugin-fails-to-build",
@@ -8,7 +14,7 @@ return {
     -- "stevearc/dressing.nvim", -- Recommended but not required. Better UI for pickers.
     -- "nvim-tree/nvim-web-devicons", -- Recommended but not required. Icons in discussion tree.
   },
-  enabled = true,
+  enabled = enabled,
   event = "VeryLazy",
   build = function()
     require("gitlab.server").build(true)
