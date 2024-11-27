@@ -22,17 +22,14 @@ return {
       local cmp = require("cmp")
       local types = require("cmp.types")
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-i>"] = cmp.mapping.select_next_item(),
-        ["<C-n>"] = function()
+        ["<c-n>"] = function()
           if cmp.visible() then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
           else
             cmp.complete()
           end
         end,
-        ["<C-p>"] = function()
+        ["<c-p>"] = function()
           if cmp.visible() then
             cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
           else

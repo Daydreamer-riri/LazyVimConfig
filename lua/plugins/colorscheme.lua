@@ -31,8 +31,14 @@ return {
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         pattern = "*",
         callback = function()
-          vim.api.nvim_set_hl(0, "NormalFloat", { guibg = nil })
-          vim.api.nvim_set_hl(0, "FloatBorder", { guibg = nil })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil })
+          vim.api.nvim_set_hl(0, "FloatBorder", { bg = nil, fg = "#928374" })
+          vim.api.nvim_set_hl(0, "NoiceMini", { bg = "#1b1b1b" })
+          vim.api.nvim_set_hl(0, "GlanceListNormal", { bg = "#1b1b1b" })
+          vim.api.nvim_set_hl(0, "GlancePreviewNormal", { bg = "#1b1b1b" })
+          vim.api.nvim_set_hl(0, "GlanceWinBarTitle", { bg = "#1b1b1b", fg = "#e2cca9" })
+          vim.api.nvim_set_hl(0, "GlanceWinBarFilename", { bg = "#1b1b1b", fg = "#e2cca9" })
+          vim.api.nvim_set_hl(0, "GlanceWinBarFilepath", { bg = "#1b1b1b", fg = "#928374" })
         end,
       })
     end,

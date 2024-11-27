@@ -1,3 +1,16 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  callback = function()
+    vim.lsp.start({
+      name = "iconfont_ls",
+      cmd = {
+        "D:\\Users\\ding.zhao\\AppData\\Local\\fnm_multishells\\9456_1732604864472\\iconfont-reminder-language-server.cmd",
+      },
+      root_dir = vim.uv.cwd(),
+    })
+  end,
+})
+
 return {
   "neovim/nvim-lspconfig",
   opts = {

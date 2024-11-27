@@ -1,6 +1,21 @@
 return {
   {
     "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[
+      ______ _      _ _       _____           _      
+      | ___ (_)    (_| )     /  __ \         | |     
+      | |_/ /_ _ __ _|/ ___  | /  \/ ___   __| | ___ 
+      |    /| | '__| | / __| | |    / _ \ / _` |/ _ \
+      | |\ \| | |  | | \__ \ | \__/\ (_) | (_| |  __/
+      \_| \_|_|_|  |_| |___/  \____/\___/ \__,_|\___|
+]],
+          -- stylua: ignore
+        },
+      },
+    },
   },
   {
     "akinsho/bufferline.nvim",
@@ -34,10 +49,7 @@ return {
   },
   {
     "DNLHC/glance.nvim",
-    opts = function()
-      vim.api.nvim_set_hl(0, "GlanceListNormal", { link = "NormalFloat" })
-      vim.api.nvim_set_hl(0, "GlancePreviewNormal", { link = "NormalFloat" })
-    end,
+    opts = function() end,
     keys = {
       { "gpd", "<CMD>Glance definitions<CR>", mode = { "n" }, desc = "Glance definitions" },
       { "gpr", "<CMD>Glance references<CR>", mode = { "n" }, desc = "Glance references" },
