@@ -19,9 +19,9 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    enabled = false,
+    -- enabled = false,
     lazy = true,
-    version = false,
+    version = true,
     opts = {
       provider = "copilot",
       auto_suggestions_provider = "copilot",
