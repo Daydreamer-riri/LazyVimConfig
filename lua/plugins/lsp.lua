@@ -56,14 +56,6 @@ return {
           "scss",
         },
       },
-      -- somesass_ls = {
-      --   root_dir = function(...)
-      --     return require("lspconfig.util").root_pattern(".git")(...)
-      --   end,
-      --   init_options = {
-      --     workspace = require("lspconfig.util").root_pattern(".git")(...),
-      --   },
-      -- },
     },
     setup = {
       eslint = function(_, opts)
@@ -79,13 +71,6 @@ return {
             client.server_capabilities.documentFormattingProvider = false
           end
         end)
-      end,
-      cssmodules_ls = function()
-        -- require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-        --   if client.name == "cssmodules_ls" then
-        --     client.server_capabilities.definitionProvider = false
-        --   end
-        -- end)
       end,
     },
   },

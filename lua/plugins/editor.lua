@@ -55,6 +55,14 @@ return {
     },
   },
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      local npairs = require("nvim-autopairs")
+      npairs.setup({})
+    end,
+  },
+  {
     "mini.pairs",
     enabled = false,
   },
@@ -69,7 +77,6 @@ return {
   {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
-    opts = {},
   },
   {
     "chrisgrieser/nvim-spider",
@@ -119,17 +126,6 @@ return {
     opt = true, -- Set this to true if the plugin is optional
     event = "InsertCharPre", -- Set the event to 'InsertCharPre' for better compatibility
     priority = 1000,
-  },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   enabled = false,
-  -- },
-  {
-    "nvim-cmp",
-    keys = {
-      { "<Tab>", false, mode = { "i", "s" } },
-      { "<S-Tab>", false, mode = { "i", "s" } },
-    },
   },
   {
     "mg979/vim-visual-multi",
