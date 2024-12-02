@@ -22,6 +22,7 @@ return {
           vim.api.nvim_set_hl(0, "GlanceWinBarTitle", { bg = "#1b1b1b", fg = "#e2cca9" })
           vim.api.nvim_set_hl(0, "GlanceWinBarFilename", { bg = "#1b1b1b", fg = "#e2cca9" })
           vim.api.nvim_set_hl(0, "GlanceWinBarFilepath", { bg = "#1b1b1b", fg = "#928374" })
+          vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#45403d" })
         end,
       })
     end,

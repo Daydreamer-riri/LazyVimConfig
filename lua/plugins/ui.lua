@@ -200,4 +200,16 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     commit = "e7a4442e055ec953311e77791546238d1eaae507",
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      cursor_color = "#d4be98",
+      legacy_computing_symbols_support = true,
+      stiffness = 0.8,
+      trailing_stiffness = 0.6,
+      trailing_exponent = 0,
+      distance_stop_animating = 0.5,
+      hide_target_hack = false,
+    },
+  },
 }

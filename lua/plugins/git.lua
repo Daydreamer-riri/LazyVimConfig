@@ -106,6 +106,20 @@ return {
         "<cmd>Gitsigns preview_hunk_inline<cr>",
         desc = "Preview Hunk Inline",
       },
+      {
+        "<leader>hd",
+        function()
+          require("gitsigns").diffthis()
+        end,
+        desc = "Diff this",
+      },
+      {
+        "<leader>hD",
+        function()
+          require("gitsigns").diffthis("~")
+        end,
+        desc = "Diff this ~",
+      },
     },
   },
 }
