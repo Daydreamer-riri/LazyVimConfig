@@ -1,25 +1,6 @@
 local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
-    "ellisonleao/gruvbox.nvim",
-    enabled = false,
-    opts = function()
-      if vim.g.neovide then
-        return {}
-      end
-      return {
-        transparent_mode = true,
-        -- overrides = {
-        --   ["@string"] = { fg = "#d8a657" },
-        -- },
-        -- palette_overrides = {
-        --   bright_red = "#ea6962",
-        --   bright_green = "#a9b665",
-        -- },
-      }
-    end,
-  },
-  {
     "sainnhe/gruvbox-material",
     config = function()
       vim.g.gruvbox_material_transparent_background = transparent_mode

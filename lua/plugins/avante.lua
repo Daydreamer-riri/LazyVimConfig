@@ -21,7 +21,7 @@ return {
     event = "VeryLazy",
     -- enabled = false,
     lazy = true,
-    version = true,
+    -- version = true,
     opts = {
       provider = "copilot",
       auto_suggestions_provider = "copilot",

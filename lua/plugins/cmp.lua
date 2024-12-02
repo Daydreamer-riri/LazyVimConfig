@@ -12,24 +12,21 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-      config = true,
-      opts = {},
-    },
     opts = function(_, opts)
       local cmp = require("cmp")
       local types = require("cmp.types")
+      opts.mapping["<C-N>"] = nil
+      opts.mapping["<C-P>"] = nil
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<c-n>"] = function()
+        ["<C-n>"] = function()
           if cmp.visible() then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
           else
             cmp.complete()
           end
         end,
-        ["<c-p>"] = function()
+        ["<C-p>"] = function()
           if cmp.visible() then
             cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
           else
@@ -37,9 +34,6 @@ return {
           end
         end,
       })
-
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
       local compare = require("cmp.config.compare")
 
@@ -58,23 +52,10 @@ return {
         compare.order,
       }
 
-      -- local window = require("cmp.config.window")
       opts.window = opts.window or {}
-      -- opts.window.completion = window.bordered({ winhighlight = "Normal:Normal" })
-      -- opts.window.documentation = window.bordered({
-      --   winhighlight = "Normal:Pmenu",
-      -- })
       opts.window.documentation = {
         winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
       }
     end,
-  },
-  {
-    {
-      "garymjr/nvim-snippets",
-      opts = {
-        friendly_snippets = true,
-      },
-    },
   },
 }
