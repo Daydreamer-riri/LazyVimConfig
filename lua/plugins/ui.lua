@@ -114,7 +114,7 @@ return {
       opts.close = { enable = false }
       opts.open = { enable = false }
       opts.scroll.timing = animate.gen_timing.linear({ duration = 80, unit = "total" })
-      opts.cursor = { timing = animate.gen_timing.linear({ duration = 80, unit = "total" }) }
+      -- opts.cursor = { timing = animate.gen_timing.linear({ duration = 80, unit = "total" }) }
     end,
   },
   {

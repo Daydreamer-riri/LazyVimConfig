@@ -7,9 +7,9 @@ return {
       components = {
         "default",
         { "on_output_parse", problem_matcher = "$eslint-stylish" },
-        -- "on_result_diagnostics",
+        "on_result_diagnostics",
         { "on_result_diagnostics_quickfix", use_loclist = true },
-        -- "on_result_diagnostics_trouble",
+        "on_result_diagnostics_trouble",
       },
     }
   end,

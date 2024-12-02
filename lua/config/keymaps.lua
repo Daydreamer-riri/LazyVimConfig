@@ -14,6 +14,13 @@ keymap.set("n", "dw", 'vb"_d')
 --- Select all
 keymap.set("n", "<C-a>", "<Cmd>lua MiniAnimate.execute_after('scroll', 'normal! gg<S-v>G')<CR>")
 
+keymap.set(
+  "n",
+  "<leader>xe",
+  "<Cmd>Trouble diagnostics filter.severity=vim.diagnostic.severity.ERROR<CR>",
+  { desc = "Diagnostic ERROR" }
+)
+
 keymap.set({ "n", "v" }, "gh", "^")
 keymap.set({ "v", "n" }, "gl", "$")
 
