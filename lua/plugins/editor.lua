@@ -63,7 +63,8 @@ return {
     "dmmulroy/tsc.nvim",
     opts = {
       use_trouble_qflist = true,
-      use_diagnostics = true,
+      use_diagnostics = false,
+      enable_progress_notifications = false,
     },
   },
   {
