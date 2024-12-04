@@ -1,15 +1,17 @@
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  callback = function()
-    vim.lsp.start({
-      name = "iconfont_ls",
-      cmd = {
-        "D:\\Users\\ding.zhao\\AppData\\Local\\fnm_multishells\\9456_1732604864472\\iconfont-reminder-language-server.cmd",
-      },
-      root_dir = vim.uv.cwd(),
-    })
-  end,
-})
+if vim.env.iconfont_ls then
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    callback = function()
+      vim.lsp.start({
+        name = "iconfont_ls",
+        cmd = {
+          vim.env.iconfont_ls,
+        },
+        root_dir = vim.uv.cwd(),
+      })
+    end,
+  })
+end
 
 local eslint_file_types = {
   "javascript",
@@ -92,6 +94,7 @@ return {
         }
         require("lazyvim.util").lsp.on_attach(function(client, bufnr)
           if client.name == "eslint" then
+            client.server_capabilities.documentFormattingProvider = true
           elseif vim.tbl_contains(lspType, client.name) then
             client.server_capabilities.documentFormattingProvider = false
           end

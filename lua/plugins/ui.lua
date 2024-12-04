@@ -5,14 +5,42 @@ return {
       dashboard = {
         preset = {
           header = [[
-      ______ _      _ _        _____           _      
-      | ___ (_)    (_| )      /  __ \         | |     
-      | |_/ /_ _ __ _|/ ___   | /  \/ ___   __| | ___ 
-      |    /| | '__| | / __|  | |    / _ \ / _` |/ _ \
-      | |\ \| | |  | | \__ \  | \__/\ (_) | (_| |  __/
-      \_| \_|_|_|  |_| |___/   \____/\___/ \__,_|\___|
+     ______ _      _ _        _____           _      
+     | ___ (_)    (_| )      /  __ \         | |     
+     | |_/ /_ _ __ _|/ ___   | /  \/ ___   __| | ___ 
+     |    /| | '__| | / __|  | |    / _ \ / _` |/ _ \
+     | |\ \| | |  | | \__ \  | \__/\ (_) | (_| |  __/
+     \_| \_|_|_|  |_| |___/   \____/\___/ \__,_|\___|
 ]],
           -- stylua: ignore
+        },
+        sections = {
+          { section = "header" },
+          {
+            pane = 2,
+            section = "terminal",
+            cmd = "",
+            height = 5,
+            padding = 1,
+          },
+          { section = "keys", gap = 1, padding = 1 },
+          { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          {
+            pane = 2,
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git status --short --branch --renames",
+            height = 5,
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 3,
+          },
+          { section = "startup" },
         },
       },
     },
@@ -205,11 +233,10 @@ return {
     opts = {
       cursor_color = "#d4be98",
       legacy_computing_symbols_support = true,
-      stiffness = 0.8,
-      trailing_stiffness = 0.6,
-      trailing_exponent = 0,
-      distance_stop_animating = 0.5,
-      hide_target_hack = false,
+      -- stiffness = 0.8, -- 0.6      [0, 1]
+      trailing_stiffness = 0.4, -- 0.25     [0, 1]
+      distance_stop_animating = 0.5, -- 0.1      > 0
+      hide_target_hack = false, -- true     boolean
     },
   },
 }
