@@ -77,6 +77,21 @@ return {
           },
         },
       },
+      vtsls = {
+        root_dir = function()
+          local lazyvimRoot = require("lazyvim.util.root")
+          return lazyvimRoot.git()
+        end,
+        settings = {
+          typescript = {
+            tsserver = {
+              experimental = {
+                enableProjectDiagnostics = true,
+              },
+            },
+          },
+        },
+      },
     },
     setup = {
       eslint = function(_, opts)

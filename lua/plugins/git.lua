@@ -122,4 +122,20 @@ return {
       },
     },
   },
+  {
+    "NeogitOrg/neogit",
+    config = true,
+    lazy = true,
+    keys = {
+      {
+        "<leader>gn",
+        function()
+          local neogit = require("neogit")
+          neogit.open()
+        end,
+        desc = "Neogit",
+        mode = { "n" },
+      },
+    },
+  },
 }
