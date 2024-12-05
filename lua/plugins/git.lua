@@ -124,7 +124,6 @@ return {
   },
   {
     "NeogitOrg/neogit",
-    config = true,
     lazy = true,
     keys = {
       {
