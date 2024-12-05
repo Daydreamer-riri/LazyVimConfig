@@ -1,9 +1,7 @@
----@type LazySpec
 return {
-  "Daydreamer-riri/yazi.nvim",
+  "Daydreamer-riri/yazi.nvim", -- support nushell on windows
   event = "VeryLazy",
   keys = {
-    -- 👇 in this section, choose your own keymappings!
     {
       "<leader>fy",
       "<cmd>Yazi<cr>",

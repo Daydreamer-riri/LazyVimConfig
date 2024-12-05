@@ -36,13 +36,12 @@ return {
     opts = {
       view = {
         merge_tool = {
-          -- Config for conflicted files in diff views during a merge or rebase.
           layout = "diff3_mixed",
           -- disable_diagnostics = true, -- Temporarily disable diagnostics for diff buffers while in the view.
           winbar_info = true, -- See |diffview-config-view.x.winbar_info|
         },
       },
-      default_args = { -- Default args prepended to the arg-list for the listed commands
+      default_args = {
         DiffviewOpen = { "--imply-local" },
       },
     },

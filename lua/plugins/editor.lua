@@ -66,15 +66,6 @@ return {
     "mini.pairs",
     enabled = false,
   },
-  { "dmmulroy/ts-error-translator.nvim" },
-  {
-    "dmmulroy/tsc.nvim",
-    opts = {
-      use_trouble_qflist = true,
-      use_diagnostics = false,
-      enable_progress_notifications = false,
-    },
-  },
   {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
@@ -144,5 +135,19 @@ return {
       { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
     },
     opts = { use_default_keymaps = false, max_join_length = 150 },
+  },
+  {
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "ys",
+        delete = "ds",
+        replace = "cs",
+        -- find = ";f",
+        -- find_left = ";F",
+        -- highlight = ";h",
+        -- update_n_lines = ";n",
+      },
+    },
   },
 }

@@ -18,34 +18,7 @@ if vim.fn.has("wsl") ~= 1 then
   end
 end
 
-if vim.fn.has("wsl") == 1 then
-  -- vim.api.nvim_create_autocmd("TextYankPost", {
-  --   callback = function()
-  --     vim.schedule(function()
-  --       vim.fn.system("clip.exe", vim.fn.getreg("0"))
-  --     end)
-  --   end,
-  -- })
-
-  -- 粘贴缓慢
-  -- vim.g.clipboard = {
-  --   name = "WslClipboard",
-  --   copy = {
-  --     ["+"] = "clip.exe",
-  --     ["*"] = "clip.exe",
-  --   },
-  --   paste = {
-  --     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --     ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --   },
-  --   cache_enabled = 0,
-  -- }
-end
-
--- vim.o.fsync = false
--- vim.g.neovide_transparency = 0.8
 if vim.g.neovide then
-  -- Put anything you want to happen only in Neovide here
   vim.o.guifont = "Cascadia Code NF,Cascadia Next SC:h14"
   vim.g.neovide_theme = "dark"
 end

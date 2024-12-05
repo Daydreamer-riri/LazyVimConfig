@@ -51,7 +51,7 @@ return {
     opts = {
       options = {
         indicator = {
-          icon = "▌", -- this should be omitted if indicator style is not 'icon'
+          icon = "▌",
         },
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -88,7 +88,6 @@ return {
     event = "BufReadPre",
     priority = 1200,
     config = function()
-      -- local colors = require("solarized-osaka.colors").setup()
       require("incline").setup({
         window = { margin = { vertical = 0, horizontal = 1 } },
         hide = {
@@ -137,12 +136,10 @@ return {
     "echasnovski/mini.animate",
     enabled = vim.g.neovide ~= true,
     opts = function(_, opts)
-      -- vim.api.nvim_set_hl(0, "MiniAnimateNormalFloat", { bg = nil })
       local animate = require("mini.animate")
       opts.close = { enable = false }
       opts.open = { enable = false }
       opts.scroll.timing = animate.gen_timing.linear({ duration = 80, unit = "total" })
-      -- opts.cursor = { timing = animate.gen_timing.linear({ duration = 80, unit = "total" }) }
     end,
   },
   {
@@ -154,79 +151,11 @@ return {
       plugins = {
         twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
       },
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-  },
-  {
-    "vuki656/package-info.nvim",
-    opts = {
-      package_manager = "pnpm",
-      autostart = false,
-    },
-    keys = {
-      {
-        "<leader>ns",
-        function()
-          require("package-info").show()
-        end,
-        mode = { "n" },
-        desc = "Show dependency versions",
-      },
-      {
-        "<leader>nc",
-        function()
-          require("package-info").hide()
-        end,
-        mode = { "n" },
-        desc = "Hide dependency versions",
-      },
-      {
-        "<leader>nt",
-        function()
-          require("package-info").toggle()
-        end,
-        mode = { "n" },
-        desc = "Toggle dependency versions",
-      },
-      {
-        "<leader>nu",
-        function()
-          require("package-info").update()
-        end,
-        mode = { "n" },
-        desc = "Update dependency on the line",
-      },
-      {
-        "<leader>nd",
-        function()
-          require("package-info").delete()
-        end,
-        mode = { "n" },
-        desc = "Delete dependency on the line",
-      },
-      {
-        "<leader>ni",
-        function()
-          require("package-info").install()
-        end,
-        mode = { "n" },
-        desc = "Install a new dependency",
-      },
-      {
-        "<leader>np",
-        function()
-          require("package-info").change_version()
-        end,
-        mode = { "n" },
-        desc = "Install a different dependency version",
-      },
     },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    commit = "e7a4442e055ec953311e77791546238d1eaae507",
+    -- commit = "e7a4442e055ec953311e77791546238d1eaae507",
   },
   {
     "sphamba/smear-cursor.nvim",

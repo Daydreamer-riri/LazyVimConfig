@@ -1,18 +1,3 @@
-if vim.env.iconfont_ls then
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    callback = function()
-      vim.lsp.start({
-        name = "iconfont_ls",
-        cmd = {
-          vim.env.iconfont_ls,
-        },
-        root_dir = vim.uv.cwd(),
-      })
-    end,
-  })
-end
-
 local eslint_file_types = {
   "javascript",
   "javascriptreact",
