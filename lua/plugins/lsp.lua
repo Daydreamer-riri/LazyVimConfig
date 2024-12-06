@@ -67,15 +67,6 @@ return {
           local lazyvimRoot = require("lazyvim.util.root")
           return lazyvimRoot.git()
         end,
-        settings = {
-          typescript = {
-            tsserver = {
-              experimental = {
-                enableProjectDiagnostics = true,
-              },
-            },
-          },
-        },
       },
     },
     setup = {
