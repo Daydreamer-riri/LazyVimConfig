@@ -34,3 +34,4 @@ vim.diagnostic.config({
 })
 
 vim.opt.smarttab = true
+vim.opt.clipboard = ""

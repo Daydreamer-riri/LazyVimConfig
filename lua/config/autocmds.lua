@@ -8,3 +8,5 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     vim.bo.fileformat = "unix"
   end,
 })
+
+require("custom.deferClip").setup()
