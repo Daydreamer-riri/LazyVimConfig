@@ -6,7 +6,9 @@ local function sync_from()
   vim.fn.jobstart({ "win32yank.exe", "-o", "--lf" }, {
     stdout_buffered = true,
     on_stdout = function(_, data)
-      vim.fn.setreg('"', table.concat(data, "\n"))
+      local contents = table.concat(data, "\n")
+      vim.fn.setreg('"', contents)
+      require("yanky.history").push({ regcontents = contents, regtype = "v" })
     end,
   })
 end
