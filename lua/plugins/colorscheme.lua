@@ -2,6 +2,8 @@ local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "sainnhe/gruvbox-material",
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.g.gruvbox_material_transparent_background = transparent_mode
       vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
@@ -23,11 +25,11 @@ return {
           vim.api.nvim_set_hl(0, "GlanceWinBarFilename", { bg = "#1b1b1b", fg = "#e2cca9" })
           vim.api.nvim_set_hl(0, "GlanceWinBarFilepath", { bg = "#1b1b1b", fg = "#928374" })
           vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#45403d" })
+          vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
         end,
       })
+      vim.cmd.colorscheme("gruvbox-material")
     end,
-    lazy = false,
-    priority = 1000,
   },
   {
     "sainnhe/everforest",
