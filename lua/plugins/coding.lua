@@ -75,32 +75,11 @@ return {
   {
     "danymat/neogen",
     opts = function(_, opts)
-      local tsdoc = require("neogen.templates.tsdoc")
-      local ts = require("neogen.configurations.typescript")
-
-      local normalTemp = {
-        { nil, "/**", { no_results = true, type = { "normal" } } },
-        { nil, " * $1", { no_results = true, type = { "normal" } } },
-        { nil, " */", { no_results = true, type = { "normal" } } },
-      }
-      for _, value in ipairs(normalTemp) do
-        table.insert(tsdoc, value)
-      end
-
-      local normalNode = { "property_signature", "enum_declaration", "property_identifier" }
-      ts.parent.normal = normalNode
-      ts.data.normal = {
-        [table.concat(normalNode, "|")] = {
-          ["0"] = {
-            extract = function()
-              return {}
-            end,
-          },
-        },
-      }
-
+      local ts = require("custom.neogen.typescript")
       opts.languages = opts.languages or {}
       opts.languages.typescript = ts
+      opts.typescriptreact = ts
+      opts["typescript.tsx"] = ts
 
       return opts
     end,
