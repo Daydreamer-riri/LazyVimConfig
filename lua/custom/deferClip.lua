@@ -34,7 +34,7 @@ function M.setup()
     group = augroup,
     callback = function()
       vim.schedule(function()
-        vim.fn.system({ "win32yank.exe", "-i" }, vim.fn.getreg("0"))
+        vim.fn.system({ "win32yank.exe", "-i" }, vim.fn.getreg('"'))
       end)
     end,
   })
