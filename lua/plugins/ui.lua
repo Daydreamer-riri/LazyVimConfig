@@ -1,6 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
+    ---@type snacks.Config
     opts = {
       dashboard = {
         preset = {
@@ -41,6 +42,11 @@ return {
             indent = 3,
           },
           { section = "startup" },
+        },
+      },
+      scroll = {
+        animate = {
+          duration = { step = 10, total = 140 },
         },
       },
     },
@@ -134,21 +140,6 @@ return {
       })
     end,
   },
-  -- {
-  --   "f-person/git-blame.nvim",
-  --   opts = function(_, opts)
-  --     LazyVim.toggle.map("<leader>ug", {
-  --       name = "Git Blame",
-  --       get = function()
-  --         return vim.g.gitblame_enabled
-  --       end,
-  --       set = function(state)
-  --         vim.g.gitblame_enabled = state
-  --       end,
-  --     })
-  --     vim.g.gitblame_enabled = false
-  --   end,
-  -- },
   {
     "petertriho/nvim-scrollbar",
     opts = {},
@@ -161,31 +152,7 @@ return {
       opts.options.component_separators = { right = "", left = "" }
     end,
   },
-  {
-    "echasnovski/mini.animate",
-    enabled = vim.g.neovide ~= true,
-    opts = function(_, opts)
-      local animate = require("mini.animate")
-      opts.close = { enable = false }
-      opts.open = { enable = false }
-      opts.scroll.timing = animate.gen_timing.linear({ duration = 80, unit = "total" })
-    end,
-  },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      window = {
-        width = 200,
-      },
-      plugins = {
-        twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
-      },
-    },
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    -- commit = "e7a4442e055ec953311e77791546238d1eaae507",
-  },
+  { "lukas-reineke/indent-blankline.nvim" },
   {
     "sphamba/smear-cursor.nvim",
     opts = {
