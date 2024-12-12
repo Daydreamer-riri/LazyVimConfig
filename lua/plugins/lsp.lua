@@ -45,67 +45,89 @@ if vim.uv.fs_stat(rood_dir .. "/" .. eslint_config_file) then
 end
 
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    servers = {
-      cssls = {},
-      cssmodules_ls = {
-        filetypes = {
-          "javascript",
-          "javascriptreact",
-          "javascript.jsx",
-          "typescript",
-          "typescriptreact",
-          "typescript.tsx",
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        cssls = {},
+        cssmodules_ls = {
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+          },
         },
-      },
-      eslint = {
-        settings = {
-          -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
-          workingDirectories = { mode = "auto" },
-          -- Silent the stylistic rules in you IDE, but still auto fix them
-          rulesCustomizations = customizations,
+        eslint = {
+          settings = {
+            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+            workingDirectories = { mode = "auto" },
+            -- Silent the stylistic rules in you IDE, but still auto fix them
+            rulesCustomizations = customizations,
+          },
+          filetypes = eslint_file_types,
         },
-        filetypes = eslint_file_types,
-      },
-      yamlls = {
-        settings = {
-          yaml = {
-            format = {
-              enable = not hasEslintConfig,
+        yamlls = {
+          settings = {
+            yaml = {
+              format = {
+                enable = not hasEslintConfig,
+              },
             },
           },
         },
+        vtsls = {
+          root_dir = function()
+            local lazyvimRoot = require("lazyvim.util.root")
+            return lazyvimRoot.git()
+          end,
+        },
       },
-      vtsls = {
-        root_dir = function()
-          local lazyvimRoot = require("lazyvim.util.root")
-          return lazyvimRoot.git()
+      setup = {
+        eslint = function(_, opts)
+          if hasEslintConfig == false then
+            return
+          end
+          local lspType = {
+            "vtsls",
+            "cssls",
+            "jsonls",
+            "yamlls",
+            "astro",
+            "marksman",
+            "taplo",
+          }
+          require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+            if client.name == "eslint" then
+              client.server_capabilities.documentFormattingProvider = true
+            elseif vim.tbl_contains(lspType, client.name) then
+              client.server_capabilities.documentFormattingProvider = false
+            end
+          end)
         end,
       },
     },
-    setup = {
-      eslint = function(_, opts)
-        if hasEslintConfig == false then
-          return
-        end
-        local lspType = {
-          "vtsls",
-          "cssls",
-          "jsonls",
-          "yamlls",
-          "astro",
-          "marksman",
-          "taplo",
-        }
-        require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-          if client.name == "eslint" then
-            client.server_capabilities.documentFormattingProvider = true
-          elseif vim.tbl_contains(lspType, client.name) then
-            client.server_capabilities.documentFormattingProvider = false
+  },
+  {
+    "artemave/workspace-diagnostics.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>cx",
+        function()
+          local clients = require("lazyvim.util").lsp.get_clients({
+            filter = function(client)
+              return client.name == "vtsls"
+            end,
+          })
+          for _, client in ipairs(clients) do
+            require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
           end
-        end)
-      end,
+        end,
+        desc = "Populate workspace diagnostics",
+      },
     },
   },
 }
