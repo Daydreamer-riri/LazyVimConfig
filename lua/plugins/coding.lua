@@ -2,6 +2,7 @@ return {
   { "dmmulroy/ts-error-translator.nvim" },
   {
     "dmmulroy/tsc.nvim",
+    event = "VeryLazy",
     opts = {
       use_trouble_qflist = true,
       use_diagnostics = false,
