@@ -1,3 +1,6 @@
+if _G.IS_WSL then
+  return {}
+end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopeResults",
   callback = function(ctx)

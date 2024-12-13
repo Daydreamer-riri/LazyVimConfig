@@ -152,7 +152,6 @@ return {
       opts.options.component_separators = { right = "", left = "" }
     end,
   },
-  { "lukas-reineke/indent-blankline.nvim" },
   {
     "sphamba/smear-cursor.nvim",
     opts = {
