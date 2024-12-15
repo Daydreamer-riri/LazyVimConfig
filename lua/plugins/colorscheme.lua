@@ -14,6 +14,11 @@ return {
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         pattern = "*",
         callback = function()
+          local config = vim.fn["gruvbox_material#get_configuration"]()
+          local palette =
+            vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+          local set_hl = vim.fn["gruvbox_material#highlight"]
+
           vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil })
           vim.api.nvim_set_hl(0, "FloatBorder", { bg = nil, fg = "#928374" })
           vim.api.nvim_set_hl(0, "HasBgNormal", { bg = "#1b1b1b" })
@@ -21,6 +26,9 @@ return {
           vim.api.nvim_set_hl(0, "WhichKeyNormal", { link = "HasBgNormal" })
           vim.api.nvim_set_hl(0, "GlanceListNormal", { link = "HasBgNormal" })
           vim.api.nvim_set_hl(0, "GlancePreviewNormal", { link = "HasBgNormal" })
+          vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "PMenu" })
+          vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { link = "PMenu" })
+          set_hl("BlinkCmpSource", palette.none, palette.grey2)
           vim.api.nvim_set_hl(0, "GlanceWinBarTitle", { bg = "#1b1b1b", fg = "#e2cca9" })
           vim.api.nvim_set_hl(0, "GlanceWinBarFilename", { bg = "#1b1b1b", fg = "#e2cca9" })
           vim.api.nvim_set_hl(0, "GlanceWinBarFilepath", { bg = "#1b1b1b", fg = "#928374" })

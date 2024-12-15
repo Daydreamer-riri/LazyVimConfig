@@ -40,3 +40,4 @@ vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cur
 vim.opt.scrolloff = 8
 vim.opt.termguicolors = true
 vim.opt.encoding = "utf-8"
+vim.g.lazyvim_picker = "telescope"
