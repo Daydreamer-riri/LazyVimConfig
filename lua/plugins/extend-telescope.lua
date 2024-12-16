@@ -8,15 +8,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-local function filenameFirst(_, path)
-  local tail = vim.fs.basename(path)
-  local parent = vim.fs.dirname(path)
-  if parent == "." then
-    return tail
-  end
-  return string.format("%s\t\t%s", tail, parent)
-end
-
 return {
   {
     "telescope.nvim",
@@ -62,7 +53,7 @@ return {
         wrap_results = true,
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
-        path_display = filenameFirst,
+        path_display = { "filename_first" },
       })
       opts.extensions = {
         live_grep_args = {
