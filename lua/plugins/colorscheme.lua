@@ -53,61 +53,6 @@ return {
     end,
   },
   {
-    "scottmckendry/cyberdream.nvim",
-    enabled = false,
-    opts = {
-      transparent = true,
-      italic_comments = true,
-      hide_fillchars = true,
-    },
-  },
-  {
-    "craftzdog/solarized-osaka.nvim",
-    enabled = false,
-    opts = function()
-      return {
-        transparent = true,
-      }
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    enabled = false,
-    opts = {
-      transparent_background = true,
-    },
-  },
-  {
-    "projekt0n/github-nvim-theme",
-    enabled = false,
-  },
-  {
-    "rose-pine/neovim",
-    enabled = false,
-    name = "rose-pine",
-    opts = {
-      variant = "moon",
-    },
-  },
-  {
-    "rebelot/kanagawa.nvim",
-    enabled = false,
-    opts = {
-      theme = "lotus",
-    },
-  },
-  {
-    "xero/miasma.nvim",
-    enabled = false,
-  },
-  {
-    "2nthony/vitesse.nvim",
-    enabled = false,
-    dependencies = {
-      "tjdevries/colorbuddy.nvim",
-    },
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "gruvbox-material",

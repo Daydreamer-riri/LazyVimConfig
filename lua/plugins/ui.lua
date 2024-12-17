@@ -49,13 +49,6 @@ return {
           duration = { step = 10, total = 140 },
         },
       },
-      styles = {
-        notification = {
-          wo = {
-            winblend = 0,
-          },
-        },
-      },
     },
   },
   {
