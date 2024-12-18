@@ -46,7 +46,7 @@ return {
       },
       scroll = {
         animate = {
-          duration = { step = 10, total = 140 },
+          duration = { total = 150 },
         },
       },
     },
@@ -154,8 +154,8 @@ return {
       cursor_color = "#d4be98",
       legacy_computing_symbols_support = true,
       -- stiffness = 0.8, -- 0.6      [0, 1]
-      trailing_stiffness = 0.4, -- 0.25     [0, 1]
-      distance_stop_animating = 0.5, -- 0.1      > 0
+      trailing_stiffness = 0.3, -- 0.25     [0, 1]
+      distance_stop_animating = 0.2, -- 0.1      > 0
       hide_target_hack = false, -- true     boolean
     },
   },
