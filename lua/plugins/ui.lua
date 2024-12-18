@@ -105,7 +105,7 @@ return {
         end,
       })
 
-      opts.presets.lsp_doc_border = true
+      vim.api.nvim_set_hl(0, "NoicePopup", { link = "PMenu" })
     end,
   },
   {
