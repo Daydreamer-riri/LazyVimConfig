@@ -25,8 +25,11 @@ return {
     opts = {
       provider = "copilot",
       auto_suggestions_provider = "copilot",
+      copilot = {
+        model = "claude-3.5-sonnet",
+      },
       behaviour = {
-        auto_suggestions = true, -- Experimental stage
+        auto_suggestions = true,
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
@@ -39,6 +42,11 @@ return {
           insert_mode = true,
         },
         use_absolute_path = true,
+      },
+      mappings = {
+        suggestion = {
+          accept = "<C-l>",
+        },
       },
     },
     build = avante_build_cmd,

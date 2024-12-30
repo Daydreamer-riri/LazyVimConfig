@@ -41,3 +41,5 @@ vim.opt.scrolloff = 8
 vim.opt.termguicolors = true
 vim.opt.encoding = "utf-8"
 vim.g.lazyvim_picker = "telescope"
+
+vim.opt.laststatus = 3
