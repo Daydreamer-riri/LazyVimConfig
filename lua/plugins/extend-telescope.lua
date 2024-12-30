@@ -34,6 +34,10 @@ return {
           },
         },
       },
+      {
+        "daydreamer-riri/pretty-telescope.nvim",
+        config = true,
+      },
     },
     keys = {
       {
@@ -47,11 +51,6 @@ return {
     opts = function(_, opts)
       vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
       vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
-      local origin_make_entry = require("telescope.make_entry")
-      local custom_make_entry = require("custom.telescope.make_entry")
-      for key, value in pairs(custom_make_entry) do
-        origin_make_entry[key] = value
-      end
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         layout_config = { prompt_position = "top" },
