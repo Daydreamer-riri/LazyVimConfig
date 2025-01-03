@@ -38,7 +38,7 @@ return {
           set_hl("TreesitterContext", palette.none, palette.bg3)
           vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
 
-          set_hl("BlinkCmpLabelMatch", palette.orange, palette.none, "bold")
+          set_hl("BlinkCmpLabelMatch", palette.green, palette.none, "bold")
           local lspKinds = vim.g.gruvbox_material_lsp_kind_color
           for _, value in ipairs(lspKinds) do
             vim.api.nvim_set_hl(0, "BlinkCmpKind" .. value[1], { link = value[2] })
