@@ -24,4 +24,8 @@ keymap.set(
 keymap.set({ "n", "v" }, "gh", "^")
 keymap.set({ "v", "n" }, "gl", "$")
 
+if vim.g.vscode then
+  keymap.set({ "n" }, "<leader>k", vim.lsp.buf.hover)
+end
+
 vim.keymap.del("n", "<leader>gl")
