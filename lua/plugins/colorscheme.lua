@@ -12,7 +12,8 @@ return {
       vim.g.gruvbox_material_float_style = "dim"
       vim.g.gruvbox_material_foreground = "mix"
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-        pattern = "*",
+        group = vim.api.nvim_create_augroup("custom_highlights_gruvboxmaterial", {}),
+        pattern = "gruvbox-material",
         callback = function()
           local config = vim.fn["gruvbox_material#get_configuration"]()
           local palette =
@@ -36,6 +37,13 @@ return {
           set_hl("GlanceWinBarFilepath", palette.grey1, palette.bg_dim)
           set_hl("TreesitterContext", palette.none, palette.bg3)
           vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
+
+          set_hl("BlinkCmpLabelMatch", palette.orange, palette.none, "bold")
+          local lspKinds = vim.g.gruvbox_material_lsp_kind_color
+          for _, value in ipairs(lspKinds) do
+            vim.api.nvim_set_hl(0, "BlinkCmpKind" .. value[1], { link = value[2] })
+          end
+          vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#665e56", bold = true })
         end,
       })
       vim.cmd.colorscheme("gruvbox-material")
