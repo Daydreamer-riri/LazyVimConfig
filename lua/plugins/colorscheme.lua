@@ -37,8 +37,6 @@ return {
           set_hl("GlanceWinBarFilepath", palette.grey1, palette.bg_dim)
           set_hl("TreesitterContext", palette.none, palette.bg3)
           vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
-
-          set_hl("BlinkCmpLabelMatch", palette.green, palette.none, "bold")
           vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#665e56", bold = true })
         end,
       })
