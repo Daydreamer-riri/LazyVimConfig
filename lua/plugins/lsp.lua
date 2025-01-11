@@ -38,10 +38,12 @@ local customizations = {
 vim.g.lazyvim_eslint_auto_format = true
 
 local hasEslintConfig = false
-local eslint_config_file = "eslint.config.js"
+local eslint_config_files = { "eslint.config.js", '"eslint.config.mjs"' }
 local rood_dir = vim.fn.getcwd()
-if vim.uv.fs_stat(rood_dir .. "/" .. eslint_config_file) then
-  hasEslintConfig = true
+for _, filename in ipairs(eslint_config_files) do
+  if vim.uv.fs_stat(rood_dir .. "/" .. filename) then
+    hasEslintConfig = true
+  end
 end
 
 return {
