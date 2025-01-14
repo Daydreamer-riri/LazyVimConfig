@@ -13,6 +13,30 @@ end
 
 return {
   {
+    "LazyVim/LazyVim",
+    opts = {
+      kind_filter = {
+        default = {
+          "Class",
+          "Constant",
+          "Constructor",
+          "Enum",
+          "Field",
+          "Function",
+          "Interface",
+          "Method",
+          "Module",
+          "Namespace",
+          "Package",
+          "Property",
+          "Struct",
+          "Trait",
+          "Variable",
+        },
+      },
+    },
+  },
+  {
     "neo-tree.nvim",
     opts = function(_, opts)
       opts.window.position = "right"
