@@ -37,6 +37,8 @@ return {
           set_hl("TreesitterContext", palette.none, palette.bg3)
           vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
           vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#665e56", bold = true })
+          set_hl("SnacksPickerDir", palette.grey1, palette.none)
+          set_hl("Normal", palette.fg0, palette.bg0)
         end,
       })
 
