@@ -13,7 +13,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     IS_WSL and {} or { import = "lazyvim.plugins.extras.lang.omnisharp" },
-    { import = "lazyvim.plugins.extras.editor.telescope" },
     -- -- import/override with your plugins
     { import = "plugins" },
   },
