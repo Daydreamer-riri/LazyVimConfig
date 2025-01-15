@@ -76,6 +76,13 @@ return {
         },
         opts = { skip = true },
       })
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "Copilot is not recommended as the default auto suggestion provider",
+        },
+        opts = { skip = true },
+      })
       local focused = true
       vim.api.nvim_create_autocmd("FocusGained", {
         callback = function()
