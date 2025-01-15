@@ -2,7 +2,6 @@ local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "sainnhe/gruvbox-material",
-    lazy = false,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_transparent_background = transparent_mode
@@ -11,15 +10,15 @@ return {
       vim.g.gruvbox_material_current_word = "grey background"
       vim.g.gruvbox_material_float_style = "dim"
       vim.g.gruvbox_material_foreground = "mix"
+      local config = vim.fn["gruvbox_material#get_configuration"]()
+      local palette =
+        vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+      local set_hl = vim.fn["gruvbox_material#highlight"]
+
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         group = vim.api.nvim_create_augroup("custom_highlights_gruvboxmaterial", {}),
         pattern = "gruvbox-material",
         callback = function()
-          local config = vim.fn["gruvbox_material#get_configuration"]()
-          local palette =
-            vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
-          local set_hl = vim.fn["gruvbox_material#highlight"]
-
           set_hl("NormalFloat", palette.fg1, palette.none)
           set_hl("FloatTitle", palette.orange, palette.none, "bold")
           set_hl("FloatBorder", palette.grey1, palette.none)
@@ -40,6 +39,7 @@ return {
           vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#665e56", bold = true })
         end,
       })
+
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
