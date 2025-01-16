@@ -13,20 +13,23 @@ end
 
 require("custom.deferClip").setup()
 
-Snacks.toggle({
-  name = "transparent background",
-  get = function()
-    local bg = Snacks.util.color("Normal", "bg")
-    return bg == nil
-  end,
-  set = function(state)
-    local config = vim.fn["gruvbox_material#get_configuration"]()
-    local palette = vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
-    local set_hl = vim.fn["gruvbox_material#highlight"]
-    if state then
-      set_hl("Normal", palette.fg0, palette.none)
-    else
-      set_hl("Normal", palette.fg0, palette.bg0)
-    end
-  end,
-}):map("<leader>uB")
+require("snacks.toggle")
+  .new({
+    name = "transparent background",
+    get = function()
+      local bg = Snacks.util.color("Normal", "bg")
+      return bg == nil
+    end,
+    set = function(state)
+      local config = vim.fn["gruvbox_material#get_configuration"]()
+      local palette =
+        vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+      local set_hl = vim.fn["gruvbox_material#highlight"]
+      if state then
+        set_hl("Normal", palette.fg0, palette.none)
+      else
+        set_hl("Normal", palette.fg0, palette.bg0)
+      end
+    end,
+  })
+  :map("<leader>uB")
