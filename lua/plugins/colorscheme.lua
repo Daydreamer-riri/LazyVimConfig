@@ -34,7 +34,7 @@ return {
           set_hl("GlanceWinBarTitle", palette.fg0, palette.bg_dim)
           set_hl("GlanceWinBarFilename", palette.fg0, palette.bg_dim)
           set_hl("GlanceWinBarFilepath", palette.grey1, palette.bg_dim)
-          set_hl("TreesitterContext", palette.none, palette.bg3)
+          set_hl("TreesitterContext", palette.none, palette.bg5)
           vim.api.nvim_set_hl(0, "Cursor", { bg = "#d4be98", fg = "#282828" })
           vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#665e56", bold = true })
           set_hl("SnacksPickerDir", palette.grey1, palette.none)

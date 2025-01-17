@@ -53,13 +53,16 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
-    keys = {},
+    keys = {
+      { "gb", "<CMD>BufferLinePick<CR>", mode = { "n" }, desc = "BufferLine Pick" },
+    },
     ---@module 'bufferline'
     ---@type fun(_, opts: bufferline.UserConfig): bufferline.UserConfig
     opts = function(_, opts)
       opts.options.show_buffer_close_icons = false
       opts.options.show_close_icon = false
       opts.options.indicator = { icon = "" }
+      opts.options.separator_style = "slope"
 
       -- custom theme
 
@@ -67,19 +70,18 @@ return {
       local palette =
         vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
       local c = {
-        inactive_bg = palette.bg2[1],
+        inactive_bg = palette.bg3[1],
         inactive_fg = palette.fg0[1],
-        active_bg = "#665c54",
-        -- active_bg = palette.grey0[1],
-        -- active_bg = "#b4a48e",
-        active_fg = palette.fg0[1],
+        active_bg = palette.grey2[1],
+        active_fg = palette.bg0[1],
+        bg = palette.bg_statusline1[1],
       }
 
       local light_palette = {
         blue = "#226b79",
         yellow = "#7a520a",
         red = "#af2528",
-        green = "#72761e",
+        green = "#64681a",
         aqua = "#477a5b",
         orange = "#b94c07",
         purple = "#924f79",
@@ -91,57 +93,21 @@ return {
         blue = palette.blue[1],
       }
 
-      -- opts.highlights = {
-      --   fill = { bg = palette.bg_statusline1[1] },
-      --   background = { bg = c.inactive_bg, fg = c.inactive_fg },
-      --   buffer_visible = { bg = c.inactive_bg },
-      --   buffer_selected = { bg = c.active_bg, fg = palette.bg0[1] },
-      --   warning = { bg = c.inactive_bg, fg = c.inactive_fg },
-      --   warning_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
-      --   warning_diagnostic = { bg = c.inactive_bg, fg = dark_pattle.yellow },
-      --   warning_diagnostic_visible = { bg = c.inactive_bg, fg = dark_pattle.yellow },
-      --   warning_selected = { bg = c.active_bg, fg = light_palette.yellow },
-      --   warning_diagnostic_selected = { bg = c.active_bg, fg = light_palette.yellow },
-      --   error = { bg = c.inactive_bg, fg = c.inactive_fg },
-      --   error_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
-      --   error_diagnostic = { bg = c.inactive_bg, fg = dark_pattle.red },
-      --   error_diagnostic_visible = { bg = c.inactive_bg, fg = dark_pattle.red },
-      --   error_selected = { bg = c.active_bg, fg = light_palette.red },
-      --   error_diagnostic_selected = { bg = c.active_bg, fg = light_palette.red },
-      --   -- Infos
-      --   info = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   info_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   info_selected = { fg = light_palette.blue, bg = c.active_bg },
-      --   info_diagnostic = { fg = dark_pattle.blue, bg = c.inactive_bg },
-      --   info_diagnostic_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   info_diagnostic_selected = { fg = light_palette.blue, bg = c.active_bg },
-      --   -- Modified
-      --   modified = { bg = c.inactive_bg },
-      --   modified_visible = { bg = c.inactive_bg },
-      --   modified_selected = { bg = c.active_bg, fg = light_palette.green },
-      --   -- Diagnostics
-      --   diagnostic = { bg = c.inactive_bg },
-      --   diagnostic_visible = { bg = c.inactive_bg },
-      --   diagnostic_selected = { bg = c.inactive_bg },
-      --   -- Hint
-      --   hint = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   hint_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   hint_selected = { fg = light_palette.aqua, bg = c.active_bg },
-      --   hint_diagnostic = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   hint_diagnostic_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-      --   hint_diagnostic_selected = { fg = light_palette.aqua, bg = c.active_bg },
-      -- }
       opts.highlights = {
-        fill = { bg = palette.bg0[1] },
+        fill = { bg = c.bg },
         background = { bg = c.inactive_bg, fg = c.inactive_fg },
         buffer_visible = { bg = c.inactive_bg },
         buffer_selected = { bg = c.active_bg, fg = c.active_fg },
+        -- Duplicate
+        duplicate_selected = { bg = c.active_bg, fg = palette.bg5[1] },
+        duplicate_visible = { bg = c.inactive_bg },
+        duplicate = { bg = c.inactive_bg },
         warning = { bg = c.inactive_bg, fg = c.inactive_fg },
         warning_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
         warning_diagnostic = { bg = c.inactive_bg, fg = dark_pattle.yellow },
         warning_diagnostic_visible = { bg = c.inactive_bg, fg = dark_pattle.yellow },
-        warning_selected = { bg = c.active_bg, fg = dark_pattle.yellow },
-        warning_diagnostic_selected = { bg = c.active_bg, fg = dark_pattle.yellow },
+        warning_selected = { bg = c.active_bg, fg = light_palette.yellow },
+        warning_diagnostic_selected = { bg = c.active_bg, fg = light_palette.yellow },
         error = { bg = c.inactive_bg, fg = c.inactive_fg },
         error_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
         error_diagnostic = { bg = c.inactive_bg, fg = dark_pattle.red },
@@ -162,64 +128,42 @@ return {
         -- Diagnostics
         diagnostic = { bg = c.inactive_bg },
         diagnostic_visible = { bg = c.inactive_bg },
-        diagnostic_selected = { bg = c.inactive_bg },
+        diagnostic_selected = { bg = c.active_bg },
         -- Hint
         hint = { fg = c.inactive_fg, bg = c.inactive_bg },
         hint_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-        hint_selected = { fg = light_palette.aqua, bg = c.active_bg },
+        hint_selected = { fg = light_palette.green, bg = c.active_bg },
         hint_diagnostic = { fg = c.inactive_fg, bg = c.inactive_bg },
         hint_diagnostic_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-        hint_diagnostic_selected = { fg = light_palette.aqua, bg = c.active_bg },
+        hint_diagnostic_selected = { fg = light_palette.green, bg = c.active_bg },
+        -- Pick
+        pick = { bg = c.inactive_bg },
+        pick_visible = { bg = c.inactive_bg },
+        pick_selected = { bg = c.active_bg, fg = light_palette.red },
+        -- separators
+        separator = { bg = c.inactive_bg, fg = c.bg },
+        separator_visible = { bg = c.inactive_bg, fg = c.bg },
+        separator_selected = { fg = c.bg, bg = c.active_bg },
+        offset_separator = { fg = palette.bg0[1], bg = c.bg },
       }
 
       local set_hl = require("snacks.util").set_hl
 
       set_hl({
-        AzureSelected = { bg = c.active_bg },
-        BlueSelected = { bg = c.active_bg },
-        CyanSelected = { bg = c.active_bg },
-        GreenSelected = { bg = c.active_bg },
-        OrangeSelected = { bg = c.active_bg },
-        PurpleSelected = { bg = c.active_bg },
-        RedSelected = { bg = c.active_bg },
-        YellowSelected = { bg = c.active_bg },
+        AzureSelected = { bg = c.active_bg, fg = light_palette.blue },
+        BlueSelected = { bg = c.active_bg, fg = light_palette.blue },
+        CyanSelected = { bg = c.active_bg, fg = light_palette.aqua },
+        GreenSelected = { bg = c.active_bg, fg = light_palette.green },
+        OrangeSelected = { bg = c.active_bg, fg = light_palette.orange },
+        PurpleSelected = { bg = c.active_bg, fg = light_palette.purple },
+        RedSelected = { bg = c.active_bg, fg = light_palette.red },
+        YellowSelected = { bg = c.active_bg, fg = light_palette.yellow },
       }, {
         prefix = "BufferLineMiniIcons",
         default = true,
       })
-      -- set_hl({
-      --   AzureSelected = { bg = c.active_bg, fg = light_palette.blue },
-      --   BlueSelected = { bg = c.active_bg, fg = light_palette.blue },
-      --   CyanSelected = { bg = c.active_bg, fg = light_palette.aqua },
-      --   GreenSelected = { bg = c.active_bg, fg = light_palette.green },
-      --   OrangeSelected = { bg = c.active_bg, fg = light_palette.orange },
-      --   PurpleSelected = { bg = c.active_bg, fg = light_palette.purple },
-      --   RedSelected = { bg = c.active_bg, fg = light_palette.red },
-      --   YellowSelected = { bg = c.active_bg, fg = light_palette.yellow },
-      -- }, {
-      --   prefix = "BufferLineMiniIcons",
-      --   default = true,
-      -- })
 
       return opts
-      -- return {
-      --   options = {
-      --     indicator = {
-      --       icon = "▌",
-      --     },
-      --     show_buffer_close_icons = false,
-      --     show_close_icon = false,
-      --     show_buffer_icons = true,
-      --   },
-      --   highlights = {
-      --     fill = {
-      --       bg = {
-      --         attribute = "bg",
-      --         highlight = "lualine_b_normal",
-      --       },
-      --     },
-      --   },
-      -- }
     end,
   },
   {
