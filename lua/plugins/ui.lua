@@ -49,6 +49,19 @@ return {
           duration = { total = 150 },
         },
       },
+      indent = {
+        scope = {
+          enabled = false,
+        },
+        chunk = {
+          enabled = true,
+          char = {
+            corner_top = "╭",
+            corner_bottom = "╰",
+          },
+          hl = "Purple",
+        },
+      },
     },
   },
   {
