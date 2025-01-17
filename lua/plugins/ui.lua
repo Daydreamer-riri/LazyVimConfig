@@ -144,7 +144,12 @@ return {
         separator = { bg = c.inactive_bg, fg = c.bg },
         separator_visible = { bg = c.inactive_bg, fg = c.bg },
         separator_selected = { fg = c.bg, bg = c.active_bg },
-        offset_separator = { fg = palette.bg0[1], bg = c.bg },
+        offset_separator = { fg = c.bg, bg = c.bg },
+        -- tabs
+        tab = { fg = c.inactive_fg, bg = c.inactive_bg },
+        tab_selected = { fg = c.active_fg, bg = c.active_bg },
+        tab_separator = { fg = c.bg, bg = c.inactive_bg },
+        tab_separator_selected = { fg = c.bg, bg = c.active_bg },
       }
 
       local set_hl = require("snacks.util").set_hl
