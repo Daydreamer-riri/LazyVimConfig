@@ -21,19 +21,24 @@ function M.hl(params)
 
   local set_hl = require("snacks.util").set_hl
 
-  set_hl({
-    AzureSelected = { bg = c.active_bg, fg = light_palette.blue },
-    BlueSelected = { bg = c.active_bg, fg = light_palette.blue },
-    CyanSelected = { bg = c.active_bg, fg = light_palette.aqua },
-    GreenSelected = { bg = c.active_bg, fg = light_palette.green },
-    OrangeSelected = { bg = c.active_bg, fg = light_palette.orange },
-    PurpleSelected = { bg = c.active_bg, fg = light_palette.purple },
-    RedSelected = { bg = c.active_bg, fg = light_palette.red },
-    YellowSelected = { bg = c.active_bg, fg = light_palette.yellow },
-  }, {
-    prefix = "BufferLineMiniIcons",
-    default = true,
-  })
+  if light_palette then
+    set_hl({
+      AzureSelected = { bg = c.active_bg, fg = light_palette.blue },
+      BlueSelected = { bg = c.active_bg, fg = light_palette.blue },
+      CyanSelected = { bg = c.active_bg, fg = light_palette.aqua },
+      GreenSelected = { bg = c.active_bg, fg = light_palette.green },
+      OrangeSelected = { bg = c.active_bg, fg = light_palette.orange },
+      PurpleSelected = { bg = c.active_bg, fg = light_palette.purple },
+      RedSelected = { bg = c.active_bg, fg = light_palette.red },
+      YellowSelected = { bg = c.active_bg, fg = light_palette.yellow },
+    }, {
+      prefix = "BufferLineMiniIcons",
+      default = true,
+    })
+  end
+
+  light_palette = light_palette or {}
+  dark_palette = dark_palette or {}
 
   return {
     fill = if_not_nil({ bg = c.bg }),

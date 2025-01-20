@@ -15,6 +15,7 @@ require("lazy").setup({
     IS_WSL and {} or { import = "lazyvim.plugins.extras.lang.omnisharp" },
     -- -- import/override with your plugins
     { import = "plugins" },
+    { import = "colorschemes.rose-pine" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

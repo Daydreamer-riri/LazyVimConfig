@@ -59,7 +59,7 @@ return {
             corner_top = "╭",
             corner_bottom = "╰",
           },
-          hl = "Purple",
+          hl = "MiniIconsPurple",
         },
       },
     },
@@ -75,39 +75,38 @@ return {
       opts.options.show_buffer_close_icons = false
       opts.options.show_close_icon = false
       opts.options.indicator = { icon = "" }
-      opts.options.separator_style = "slope"
+      -- opts.options.separator_style = "slope"
 
       -- custom theme
 
-      local config = vim.fn["gruvbox_material#get_configuration"]()
-      local palette =
-        vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
-
-      local get_hl = require("custom.hl-bufferline").hl
-
-      opts.highlights = get_hl({
-        c = {
-          inactive_bg = palette.bg3[1],
-          inactive_fg = palette.fg0[1],
-          active_bg = palette.grey2[1],
-          active_fg = palette.bg0[1],
-          bg = palette.bg_statusline1[1],
-        },
-        light_palette = {
-          blue = "#226b79",
-          yellow = "#7a520a",
-          red = "#af2528",
-          green = "#64681a",
-          aqua = "#477a5b",
-          orange = "#b94c07",
-          purple = "#924f79",
-        },
-        dark_palette = {
-          yellow = palette.yellow[1],
-          red = palette.red[1],
-          blue = palette.blue[1],
-        },
-      })
+      -- local config = vim.fn["gruvbox_material#get_configuration"]()
+      -- local palette =
+      --   vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+      --
+      --
+      -- opts.highlights = get_hl({
+      --   c = {
+      --     inactive_bg = palette.bg3[1],
+      --     inactive_fg = palette.fg0[1],
+      --     active_bg = palette.grey2[1],
+      --     active_fg = palette.bg0[1],
+      --     bg = palette.bg_statusline1[1],
+      --   },
+      --   light_palette = {
+      --     blue = "#226b79",
+      --     yellow = "#7a520a",
+      --     red = "#af2528",
+      --     green = "#64681a",
+      --     aqua = "#477a5b",
+      --     orange = "#b94c07",
+      --     purple = "#924f79",
+      --   },
+      --   dark_palette = {
+      --     yellow = palette.yellow[1],
+      --     red = palette.red[1],
+      --     blue = palette.blue[1],
+      --   },
+      -- })
 
       return opts
     end,
@@ -206,7 +205,7 @@ return {
   {
     "sphamba/smear-cursor.nvim",
     opts = {
-      cursor_color = "#d4be98",
+      -- cursor_color = "#d4be98",
       -- legacy_computing_symbols_support = true,
       -- stiffness = 0.8, -- 0.6      [0, 1]
       trailing_stiffness = 0.3, -- 0.25     [0, 1]

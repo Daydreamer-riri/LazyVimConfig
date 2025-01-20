@@ -2,6 +2,7 @@ local transparent_mode = vim.g.neovide and 0 or 2
 return {
   {
     "sainnhe/gruvbox-material",
+    enabled = false,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_transparent_background = transparent_mode
@@ -57,9 +58,40 @@ return {
     end,
   },
   {
+    "rose-pine/neovim",
+    -- enabled = false,
+    name = "rose-pine",
+    opts = function(_, opts)
+      opts = opts or {}
+      opts = vim.tbl_deep_extend("force", opts, {
+        dark_variant = "moon",
+        styles = {
+          transparency = true,
+          italic = true,
+        },
+        highlight_groups = {
+          CurSearch = { fg = "base", bg = "leaf", inherit = false },
+          Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+          GlancePreviewNormal = { bg = "overlay", blend = 80, inherit = false },
+        },
+      })
+
+      return opts
+    end,
+  },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  --   opts = function(_, opts)
+  --     opts.flavour = "mocha"
+  --     opts.transparent_background = true
+  --   end,
+  -- },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "rose-pine",
     },
   },
 }

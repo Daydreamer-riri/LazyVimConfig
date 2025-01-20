@@ -145,7 +145,7 @@ return {
     priority = 1000,
   },
   {
-    "mg979/vim-visual-multi",
+    "jake-stewart/multicursor.nvim",
   },
   {
     "stevearc/overseer.nvim",
