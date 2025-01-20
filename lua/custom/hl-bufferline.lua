@@ -1,5 +1,19 @@
 local M = {}
 
+-- 辅助函数：返回非 nil 的颜色配置
+local function if_not_nil(color)
+  local bg = color.bg
+  local fg = color.fg
+  local result = {}
+  if bg then
+    result.bg = bg
+  end
+  if fg then
+    result.fg = fg
+  end
+  return next(result) and result or nil
+end
+
 function M.hl(params)
   local c = params.c
   local light_palette = params.light_palette
@@ -22,62 +36,62 @@ function M.hl(params)
   })
 
   return {
-    fill = { bg = c.bg },
-    background = { bg = c.inactive_bg, fg = c.inactive_fg },
-    buffer_visible = { bg = c.inactive_bg },
-    buffer_selected = { bg = c.active_bg, fg = c.active_fg },
+    fill = if_not_nil({ bg = c.bg }),
+    background = if_not_nil({ bg = c.inactive_bg, fg = c.inactive_fg }),
+    buffer_visible = if_not_nil({ bg = c.inactive_bg }),
+    buffer_selected = if_not_nil({ bg = c.active_bg, fg = c.active_fg }),
     -- Duplicate
-    duplicate_selected = { bg = c.active_bg, fg = c.duplicate_selected },
-    duplicate_visible = { bg = c.inactive_bg },
-    duplicate = { bg = c.inactive_bg },
-    warning = { bg = c.inactive_bg, fg = c.inactive_fg },
-    warning_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
-    warning_diagnostic = { bg = c.inactive_bg, fg = dark_palette.yellow },
-    warning_diagnostic_visible = { bg = c.inactive_bg, fg = dark_palette.yellow },
-    warning_selected = { bg = c.active_bg, fg = light_palette.yellow },
-    warning_diagnostic_selected = { bg = c.active_bg, fg = light_palette.yellow },
-    error = { bg = c.inactive_bg, fg = c.inactive_fg },
-    error_visible = { bg = c.inactive_bg, fg = c.inactive_fg },
-    error_diagnostic = { bg = c.inactive_bg, fg = dark_palette.red },
-    error_diagnostic_visible = { bg = c.inactive_bg, fg = dark_palette.red },
-    error_selected = { bg = c.active_bg, fg = light_palette.red },
-    error_diagnostic_selected = { bg = c.active_bg, fg = light_palette.red },
+    duplicate_selected = if_not_nil({ bg = c.active_bg, fg = c.duplicate_selected }),
+    duplicate_visible = if_not_nil({ bg = c.inactive_bg }),
+    duplicate = if_not_nil({ bg = c.inactive_bg }),
+    warning = if_not_nil({ bg = c.inactive_bg, fg = c.inactive_fg }),
+    warning_visible = if_not_nil({ bg = c.inactive_bg, fg = c.inactive_fg }),
+    warning_diagnostic = if_not_nil({ bg = c.inactive_bg, fg = dark_palette.yellow }),
+    warning_diagnostic_visible = if_not_nil({ bg = c.inactive_bg, fg = dark_palette.yellow }),
+    warning_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.yellow }),
+    warning_diagnostic_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.yellow }),
+    error = if_not_nil({ bg = c.inactive_bg, fg = c.inactive_fg }),
+    error_visible = if_not_nil({ bg = c.inactive_bg, fg = c.inactive_fg }),
+    error_diagnostic = if_not_nil({ bg = c.inactive_bg, fg = dark_palette.red }),
+    error_diagnostic_visible = if_not_nil({ bg = c.inactive_bg, fg = dark_palette.red }),
+    error_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.red }),
+    error_diagnostic_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.red }),
     -- Infos
-    info = { fg = c.inactive_fg, bg = c.inactive_bg },
-    info_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-    info_selected = { fg = light_palette.blue, bg = c.active_bg },
-    info_diagnostic = { fg = dark_palette.blue, bg = c.inactive_bg },
-    info_diagnostic_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-    info_diagnostic_selected = { fg = light_palette.blue, bg = c.active_bg },
+    info = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    info_visible = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    info_selected = if_not_nil({ fg = light_palette.blue, bg = c.active_bg }),
+    info_diagnostic = if_not_nil({ fg = dark_palette.blue, bg = c.inactive_bg }),
+    info_diagnostic_visible = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    info_diagnostic_selected = if_not_nil({ fg = light_palette.blue, bg = c.active_bg }),
     -- Modified
-    modified = { bg = c.inactive_bg },
-    modified_visible = { bg = c.inactive_bg },
-    modified_selected = { bg = c.active_bg, fg = light_palette.green },
+    modified = if_not_nil({ bg = c.inactive_bg }),
+    modified_visible = if_not_nil({ bg = c.inactive_bg }),
+    modified_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.green }),
     -- Diagnostics
-    diagnostic = { bg = c.inactive_bg },
-    diagnostic_visible = { bg = c.inactive_bg },
-    diagnostic_selected = { bg = c.active_bg },
+    diagnostic = if_not_nil({ bg = c.inactive_bg }),
+    diagnostic_visible = if_not_nil({ bg = c.inactive_bg }),
+    diagnostic_selected = if_not_nil({ bg = c.active_bg }),
     -- Hint
-    hint = { fg = c.inactive_fg, bg = c.inactive_bg },
-    hint_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-    hint_selected = { fg = light_palette.green, bg = c.active_bg },
-    hint_diagnostic = { fg = c.inactive_fg, bg = c.inactive_bg },
-    hint_diagnostic_visible = { fg = c.inactive_fg, bg = c.inactive_bg },
-    hint_diagnostic_selected = { fg = light_palette.green, bg = c.active_bg },
+    hint = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    hint_visible = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    hint_selected = if_not_nil({ fg = light_palette.green, bg = c.active_bg }),
+    hint_diagnostic = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    hint_diagnostic_visible = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    hint_diagnostic_selected = if_not_nil({ fg = light_palette.green, bg = c.active_bg }),
     -- Pick
-    pick = { bg = c.inactive_bg },
-    pick_visible = { bg = c.inactive_bg },
-    pick_selected = { bg = c.active_bg, fg = light_palette.red },
+    pick = if_not_nil({ bg = c.inactive_bg }),
+    pick_visible = if_not_nil({ bg = c.inactive_bg }),
+    pick_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.red }),
     -- separators
-    separator = { bg = c.inactive_bg, fg = c.bg },
-    separator_visible = { bg = c.inactive_bg, fg = c.bg },
-    separator_selected = { fg = c.bg, bg = c.active_bg },
-    offset_separator = { fg = c.bg, bg = c.bg },
+    separator = if_not_nil({ bg = c.inactive_bg, fg = c.bg }),
+    separator_visible = if_not_nil({ bg = c.inactive_bg, fg = c.bg }),
+    separator_selected = if_not_nil({ fg = c.bg, bg = c.active_bg }),
+    offset_separator = if_not_nil({ fg = c.bg, bg = c.bg }),
     -- tabs
-    tab = { fg = c.inactive_fg, bg = c.inactive_bg },
-    tab_selected = { fg = c.active_fg, bg = c.active_bg },
-    tab_separator = { fg = c.bg, bg = c.inactive_bg },
-    tab_separator_selected = { fg = c.bg, bg = c.active_bg },
+    tab = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
+    tab_selected = if_not_nil({ fg = c.active_fg, bg = c.active_bg }),
+    tab_separator = if_not_nil({ fg = c.bg, bg = c.inactive_bg }),
+    tab_separator_selected = if_not_nil({ fg = c.bg, bg = c.active_bg }),
   }
 end
 
