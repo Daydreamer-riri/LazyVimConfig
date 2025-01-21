@@ -59,4 +59,31 @@ return {
       opts.options.component_separators = { right = "|", left = "|" }
     end,
   },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = function(_, opts)
+      opts = opts or {}
+      opts = vim.tbl_deep_extend("force", opts, {
+        dark_variant = "moon",
+        styles = {
+          transparency = true,
+          italic = false,
+        },
+        highlight_groups = {
+          CurSearch = { fg = "base", bg = "leaf", inherit = false },
+          Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
+          GlancePreviewNormal = { bg = "overlay", blend = 80, inherit = false },
+        },
+      })
+
+      return opts
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "rose-pine",
+    },
+  },
 }
