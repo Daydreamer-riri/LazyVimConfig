@@ -74,6 +74,7 @@ return {
           CurSearch = { fg = "base", bg = "leaf", inherit = false },
           Search = { fg = "text", bg = "leaf", blend = 20, inherit = false },
           GlancePreviewNormal = { bg = "overlay", blend = 80, inherit = false },
+          Number = { fg = "love" },
         },
       })
 
