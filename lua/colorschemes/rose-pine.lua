@@ -16,8 +16,10 @@ return {
   {
     "akinsho/bufferline.nvim",
     opts = function(_, opts)
+      local bufferline = require("bufferline")
       opts.options.separator_style = { "", "" }
       opts.options.tab_size = 20
+      opts.options.style_preset = bufferline.style_preset.no_italic
 
       local get_hl = require("custom.hl-bufferline").hl
 
@@ -28,7 +30,12 @@ return {
           c = {
             active_bg = "#3a3554",
           },
-        })
+        }),
+        {
+          buffer_selected = {
+            italic = false,
+          },
+        }
       )
 
       return opts
