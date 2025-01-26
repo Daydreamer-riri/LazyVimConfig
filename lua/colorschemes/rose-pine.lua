@@ -83,6 +83,7 @@ return {
           GlancePreviewNormal = { bg = "overlay", blend = 80, inherit = false },
           Number = { fg = "love" },
           BlinkCmpLabel = { fg = "subtle" },
+          MsgArea = { bg = "overlay", blend = 60 },
         },
       })
 
