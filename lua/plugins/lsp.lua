@@ -132,4 +132,23 @@ return {
       },
     },
   },
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      if hasEslintConfig ~= true then
+        return opts
+      end
+      local function removePrettier(t)
+        return vim.tbl_filter(function(value)
+          return value ~= "prettier"
+        end, t)
+      end
+      local fts = { "markdown", "markdown.mdx" }
+      for _, ft in ipairs(fts) do
+        opts.formatters_by_ft[ft] = removePrettier(opts.formatters_by_ft[ft])
+      end
+
+      return opts
+    end,
+  },
 }
