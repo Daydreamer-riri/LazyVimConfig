@@ -1,5 +1,15 @@
 return {
   {
+
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      local layouts = require("snacks.picker.config.layouts")
+      layouts.sidebar.layout.position = "right"
+
+      return opts
+    end,
+  },
+  {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
@@ -16,6 +26,15 @@ return {
             filename_first = true,
           },
         },
+      },
+    },
+    keys = {
+      {
+        "<leader><space>",
+        function()
+          Snacks.picker.smart()
+        end,
+        desc = "Find Files (Root Dir)",
       },
     },
   },
