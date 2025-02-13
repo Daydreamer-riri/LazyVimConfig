@@ -11,6 +11,10 @@ function M.dial(increment, g)
   return require("dial.map")[func](group)
 end
 
+local function mc()
+  return require("multicursor-nvim")
+end
+
 return {
   {
     "LazyVim/LazyVim",
@@ -57,6 +61,10 @@ return {
         expr = true,
         desc = "Decrement",
         mode = { "n", "v" },
+      },
+      {
+        "<C-a>",
+        false,
       },
     },
   },
@@ -128,6 +136,38 @@ return {
   },
   {
     "jake-stewart/multicursor.nvim",
+    config = true,
+    keys = {
+      {
+        "<C-n>",
+        function()
+          mc().matchAddCursor(1)
+        end,
+        mode = { "n", "x" },
+      },
+      {
+        "<C-p>",
+        function()
+          mc().matchAddCursor(-1)
+        end,
+        mode = { "n", "x" },
+      },
+      {
+        "<esc>",
+        function()
+          if not mc().cursorsEnabled() then
+            mc().enableCursors()
+          elseif mc().hasCursors() then
+            mc().clearCursors()
+          else
+            -- Default <esc> handler.
+            vim.cmd("noh")
+            LazyVim.cmp.actions.snippet_stop()
+          end
+        end,
+        mode = { "n" },
+      },
+    },
   },
   {
     "stevearc/overseer.nvim",
