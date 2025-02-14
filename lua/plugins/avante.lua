@@ -104,7 +104,6 @@ return {
     },
     build = avante_build_cmd,
     dependencies = {
-      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "zbirenbaum/copilot.lua",
