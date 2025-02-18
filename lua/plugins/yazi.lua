@@ -1,5 +1,5 @@
 return {
-  "Daydreamer-riri/yazi.nvim", -- support nushell on windows
+  "mikavilpas/yazi.nvim",
   event = "VeryLazy",
   keys = {
     {
@@ -30,9 +30,6 @@ return {
       open_for_directories = false,
       open_multiple_tabs = true,
 
-      -- enable these if you are using the latest version of yazi
-      use_ya_for_events_reading = true,
-      use_yazi_client_id_flag = true,
       highlight_hovered_buffers_in_same_directory = false,
 
       keymaps = {
@@ -40,14 +37,8 @@ return {
         replace_in_directory = "<c-r>",
       },
       integrations = {
-        grep_in_directory = function(dir)
-          Snacks.picker.grep({
-            dirs = { dir },
-            on_show = function()
-              vim.api.nvim_feedkeys("i", "n", false)
-            end,
-          })
-        end,
+        grep_in_directory = "snacks.picker",
+        grep_in_selected_files = "snacks.picker",
       },
     })
   end,
