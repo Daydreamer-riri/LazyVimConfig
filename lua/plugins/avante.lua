@@ -142,6 +142,7 @@ return {
           require("avante.api").ask({ question = avante_explain_code })
         end,
         desc = "Explain Code(ask)",
+        mode = { "n", "v" },
       },
       {
         "<leader>ab",
@@ -149,6 +150,7 @@ return {
           require("avante.api").ask({ question = avante_fix_bugs })
         end,
         desc = "Fix Bugs(ask)",
+        mode = { "n", "v" },
       },
       {
         "<leader>au",
@@ -156,6 +158,7 @@ return {
           require("avante.api").ask({ question = avante_add_tests })
         end,
         desc = "Add Tests(ask)",
+        mode = { "n", "v" },
       },
       {
         "<leader>al",
@@ -163,6 +166,7 @@ return {
           require("avante.api").ask({ question = avante_code_readability_analysis })
         end,
         desc = "Code Readability Analysis(ask)",
+        mode = { "n", "v" },
       },
       {
         "<leader>ao",
@@ -170,6 +174,7 @@ return {
           require("avante.api").ask({ question = avante_optimize_code })
         end,
         desc = "Optimize Code(ask)",
+        mode = { "n", "v" },
       },
       {
         "<leader>ag",
@@ -177,6 +182,7 @@ return {
           require("avante.api").ask({ question = avante_grammar_correction })
         end,
         desc = "Grammar Correction(ask)",
+        mode = { "n", "v" },
       },
     },
   },
