@@ -26,6 +26,16 @@ return {
             filename_first = true,
           },
         },
+        ---@class snacks.picker.previewers.Config
+        previewers = {
+          diff = {
+            builtin = false,
+            cmd = { "delta" },
+          },
+          git = {
+            builtin = false,
+          },
+        },
       },
     },
     keys = {
