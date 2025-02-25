@@ -92,6 +92,14 @@ return {
     end,
   },
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      code = {
+        disable_background = { "lua", "typescript", "typescriptreact", "javascript" },
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "rose-pine",
