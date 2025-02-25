@@ -75,7 +75,7 @@ return {
       provider = "copilot",
       auto_suggestions_provider = "copilot",
       copilot = {
-        model = "claude-3.5-sonnet",
+        model = "claude-3.7-sonnet",
       },
       behaviour = {
         auto_suggestions = false,
@@ -125,14 +125,14 @@ return {
       --     },
       --   },
       -- },
-      -- {
-      --   -- Make sure to set this up properly if you have lazy=true
-      --   'MeanderingProgrammer/render-markdown.nvim',
-      --   opts = {
-      --     file_types = { "markdown", "Avante" },
-      --   },
-      --   ft = { "markdown", "Avante" },
-      -- },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
     },
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
