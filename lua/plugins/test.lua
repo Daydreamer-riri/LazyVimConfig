@@ -1,6 +1,6 @@
 return {
-  -- { "nvim-neotest/neotest-jest", commit = "bdef19a76f70eb06563c0133234b46b8f8e09d35" },
-  { "Daydreamer-riri/neotest-jest" },
+  { "nvim-neotest/neotest-jest" },
+  -- { "Daydreamer-riri/neotest-jest" },
   { "marilari88/neotest-vitest" },
   {
     "nvim-neotest/neotest",
@@ -12,20 +12,21 @@ return {
               return string.match(file, "(.-/[^/]+/)(src|__tests__)") .. "jest.config.js"
             end
             if string.find(file, "/projects/") then
-              return string.match(file, "(.-/[^/]+/)(src|__tests__)") .. "jest.config.js"
+              local configFile = string.match(file, "(.-/[^/]+/)src") .. "jest.config.js"
+              return configFile
             end
 
             return vim.fn.getcwd() .. "/jest.config.js"
           end,
-          cwd = function(file)
-            if string.find(file, "/packages/") then
-              return string.match(file, "(.-/[^/]+/)(src|__tests__)")
-            end
-            if string.find(file, "/projects/") then
-              return string.match(file, "(.-/[^/]+/)(src|__tests__)")
-            end
-            return vim.fn.getcwd()
-          end,
+          -- cwd = function(file)
+          --   if string.find(file, "/packages/") then
+          --     return string.match(file, "(.-/[^/]+/)(src|__tests__)")
+          --   end
+          --   if string.find(file, "/projects/") then
+          --     return string.match(file, "(.-/[^/]+/)(src|__tests__)")
+          --   end
+          --   return vim.fn.getcwd()
+          -- end,
         },
         ["neotest-vitest"] = {
           vitestCommand = "npx vitest run",
