@@ -1,6 +1,12 @@
 return {
   { "dmmulroy/ts-error-translator.nvim" },
   {
+    "youyoumu/pretty-ts-errors.nvim",
+    opts = {
+      auto_open = false,
+    },
+  },
+  {
     "dmmulroy/tsc.nvim",
     event = "VeryLazy",
     opts = {
