@@ -12,6 +12,7 @@ return {
         -- "less",
         "tsx",
         "typescript",
+        "http",
       })
     end,
   },
