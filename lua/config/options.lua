@@ -42,3 +42,5 @@ vim.opt.termguicolors = true
 vim.opt.encoding = "utf-8"
 
 vim.opt.laststatus = 3
+
+vim.opt.conceallevel = 0
