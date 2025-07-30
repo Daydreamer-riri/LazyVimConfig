@@ -1,6 +1,4 @@
-local isWSL = vim.fn.has("wsl") == 1
-local avante_build_cmd = isWSL and "make"
-  or "powershell -nologo -noprofile -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+local avante_build_cmd = vim.fn.has("win32") and nil or "make"
 
 -- prefil edit window with common scenarios to avoid repeating query and submit immediately
 local prefill_edit_window = function(request)
