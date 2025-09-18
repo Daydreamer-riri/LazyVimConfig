@@ -184,7 +184,7 @@ return {
     opts = { use_default_keymaps = false, max_join_length = 150 },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "ys",
