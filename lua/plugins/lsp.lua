@@ -120,26 +120,6 @@ return {
     },
   },
   {
-    "artemave/workspace-diagnostics.nvim",
-    lazy = true,
-    keys = {
-      {
-        "<leader>cx",
-        function()
-          local clients = require("lazyvim.util").lsp.get_clients({
-            filter = function(client)
-              return client.name == "vtsls"
-            end,
-          })
-          for _, client in ipairs(clients) do
-            require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
-          end
-        end,
-        desc = "Populate workspace diagnostics",
-      },
-    },
-  },
-  {
     "stevearc/conform.nvim",
     opts = function(_, opts)
       if hasEslintConfig ~= true then
