@@ -96,12 +96,15 @@ return {
             },
           },
         },
-        vtsls = {
-          root_dir = function()
-            local lazyvimRoot = require("lazyvim.util.root")
-            return lazyvimRoot.git()
-          end,
-        },
+        -- vtsls = {
+        --   root_dir = function()
+        --     local git = require("snacks.git")
+        --     local root = git.get_root()
+        --     -- __AUTO_GENERATED_PRINT_VAR_START__
+        --     print([==[root_dir root:]==], vim.inspect(root)) -- __AUTO_GENERATED_PRINT_VAR_END__
+        --     return root
+        --   end,
+        -- },
       },
       setup = {
         eslint = function(_, opts)
