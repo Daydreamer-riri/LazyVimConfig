@@ -45,6 +45,25 @@ local avante_add_tests = "Implement tests for the following code"
 
 return {
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = "<tab>",
+        },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  }, -- for providers='copilot'
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     -- enabled = false,
@@ -87,7 +106,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      -- "zbirenbaum/copilot.lua",
+      "zbirenbaum/copilot.lua",
       "nvim-mini/mini.icons",
       {
         "MeanderingProgrammer/render-markdown.nvim",
