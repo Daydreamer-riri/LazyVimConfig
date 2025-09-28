@@ -53,7 +53,7 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = "<C-l>",
+          accept = "<tab>",
         },
       },
       panel = { enabled = false },
