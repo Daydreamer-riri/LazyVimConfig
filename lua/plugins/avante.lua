@@ -66,7 +66,7 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    -- enabled = false,
+    enabled = false,
     lazy = true,
     -- version = true,
     opts = {
@@ -168,19 +168,19 @@ return {
       },
     },
   },
-  {
-    "saghen/blink.cmp",
-    dependencies = { "Saghen/blink.compat" },
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      sources = {
-        compat = {
-          "avante_commands",
-          "avante_mentions",
-          "avante_files",
-        },
-      },
-    },
-  },
+  -- {
+  --   "saghen/blink.cmp",
+  --   dependencies = { "Saghen/blink.compat" },
+  --   ---@module 'blink.cmp'
+  --   ---@type blink.cmp.Config
+  --   opts = {
+  --     sources = {
+  --       compat = {
+  --         "avante_commands",
+  --         "avante_mentions",
+  --         "avante_files",
+  --       },
+  --     },
+  --   },
+  -- },
 }
