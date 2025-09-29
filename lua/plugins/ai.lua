@@ -2,7 +2,9 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
-      -- add any options here
+      signs = {
+        icon = "󰞔 ",
+      },
     },
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
