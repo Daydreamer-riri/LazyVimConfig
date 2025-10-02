@@ -29,6 +29,7 @@ return {
         get_hl({
           c = {
             active_bg = "#3a3554",
+            inactive_bg = "#232136",
           },
         }),
         {
