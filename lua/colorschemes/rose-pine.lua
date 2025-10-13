@@ -73,6 +73,15 @@ return {
     name = "rose-pine",
     opts = function(_, opts)
       opts = opts or {}
+
+      local set_hl = require("snacks.util").set_hl
+      set_hl({
+        BlinkCmpDoc = { bg = nil },
+        BlinkCmpDocSeparator = { bg = nil },
+      }, {
+        default = false,
+      })
+
       opts = vim.tbl_deep_extend("force", opts, {
         dark_variant = "moon",
         styles = {
@@ -85,6 +94,7 @@ return {
           GlancePreviewNormal = { bg = "overlay", blend = 80, inherit = false },
           Number = { fg = "love" },
           BlinkCmpLabel = { fg = "subtle" },
+          BlinkCmpDoc = { bg = nil },
           MsgArea = { bg = "overlay", blend = 60 },
         },
       })
