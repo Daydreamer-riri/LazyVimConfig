@@ -1,12 +1,6 @@
 return {
   { "dmmulroy/ts-error-translator.nvim" },
   {
-    "youyoumu/pretty-ts-errors.nvim",
-    opts = {
-      auto_open = false,
-    },
-  },
-  {
     "dmmulroy/tsc.nvim",
     event = "VeryLazy",
     opts = {
@@ -81,14 +75,5 @@ return {
   },
   {
     "danymat/neogen",
-    opts = function(_, opts)
-      local ts = require("custom.neogen.typescript")
-      opts.languages = opts.languages or {}
-      opts.languages.typescript = ts
-      opts.typescriptreact = ts
-      opts["typescript.tsx"] = ts
-
-      return opts
-    end,
   },
 }

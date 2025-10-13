@@ -44,4 +44,12 @@ return {
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.options.section_separators = { right = "", left = "" }
+      opts.options.component_separators = { right = "", left = "" }
+    end,
+  },
 }
