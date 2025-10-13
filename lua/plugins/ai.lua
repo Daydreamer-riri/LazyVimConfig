@@ -11,6 +11,11 @@ return {
         prompts = {
           commit = "Can you help me commit current changes",
         },
+        win = {
+          split = {
+            width = math.min(math.floor(vim.o.columns * 0.35), 80),
+          },
+        },
         mux = {
           enabled = true,
           -- create = "window",
