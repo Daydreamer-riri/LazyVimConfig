@@ -33,6 +33,14 @@ vim.diagnostic.config({
   float = { border = _border },
 })
 
+vim.g.rustaceanvim = {
+  tools = {
+    float_win_config = {
+      border = _border,
+    },
+  },
+}
+
 vim.opt.smarttab = true
 vim.opt.clipboard = ""
 vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
