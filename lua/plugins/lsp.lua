@@ -141,4 +141,29 @@ return {
       return opts
     end,
   },
+  {
+    "mrcjkb/rustaceanvim",
+    ft = { "rust" },
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          local keys = require("lazyvim.plugins.lsp.keymaps").get()
+          keys[#keys + 1] = { "<leader>cR", false }
+
+          vim.keymap.set("n", "<leader>cR", function()
+            vim.cmd.RustLsp("codeAction")
+          end, { desc = "Code Action", buffer = bufnr })
+          vim.keymap.set("n", "<leader>cE", function()
+            vim.cmd.RustLsp({ "explainError", "current" })
+          end, { desc = "Explain Error", buffer = bufnr })
+          vim.keymap.set("n", "<leader>ce", function()
+            vim.cmd.RustLsp({ "renderDiagnostic", "current" })
+          end, { desc = "Render Diagnostic", buffer = bufnr })
+          vim.keymap.set("n", "<leader>dr", function()
+            vim.cmd.RustLsp("debuggables")
+          end, { desc = "Rust Debuggables", buffer = bufnr })
+        end,
+      },
+    },
+  },
 }
