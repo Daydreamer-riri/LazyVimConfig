@@ -69,7 +69,7 @@ function M.hl(params)
     info_diagnostic_visible = if_not_nil({ fg = c.inactive_fg, bg = c.inactive_bg }),
     info_diagnostic_selected = if_not_nil({ fg = light_palette.blue, bg = c.active_bg }),
     -- Modified
-    modified = if_not_nil({ bg = c.inactive_bg }),
+    modified = if_not_nil({}),
     modified_visible = if_not_nil({ bg = c.inactive_bg }),
     modified_selected = if_not_nil({ bg = c.active_bg, fg = light_palette.green }),
     -- Diagnostics

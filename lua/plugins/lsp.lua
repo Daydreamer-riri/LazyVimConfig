@@ -145,6 +145,11 @@ return {
     "mrcjkb/rustaceanvim",
     ft = { "rust" },
     opts = {
+      tools = {
+        float_win_config = {
+          border = "rounded",
+        },
+      },
       server = {
         on_attach = function(_, bufnr)
           local keys = require("lazyvim.plugins.lsp.keymaps").get()
@@ -163,6 +168,15 @@ return {
             vim.cmd.RustLsp("debuggables")
           end, { desc = "Rust Debuggables", buffer = bufnr })
         end,
+        default_settings = {
+          ["rust-analyzer"] = {
+            diagnostics = {
+              experimental = {
+                enable = true,
+              },
+            },
+          },
+        },
       },
     },
   },
