@@ -65,13 +65,15 @@ return {
     },
   },
   {
-    "akinsho/bufferline.nvim",
+    "Daydreamer-riri/bufferline.nvim",
+    branch = "perf/lsp",
     keys = {
       { "gb", "<CMD>BufferLinePick<CR>", mode = { "n" }, desc = "BufferLine Pick" },
     },
     ---@module 'bufferline'
     ---@type fun(_, opts: bufferline.UserConfig): bufferline.UserConfig
     opts = function(_, opts)
+      opts.options.diagnostics_update_on_event = false
       opts.options.show_buffer_close_icons = false
       opts.options.show_close_icon = false
       opts.options.indicator = { icon = "" }

@@ -14,7 +14,7 @@ return {
     end,
   },
   {
-    "akinsho/bufferline.nvim",
+    "Daydreamer-riri/bufferline.nvim",
     opts = function(_, opts)
       local bufferline = require("bufferline")
       opts.options.separator_style = { "", "" }
