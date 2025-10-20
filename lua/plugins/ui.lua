@@ -66,7 +66,7 @@ return {
   },
   {
     "Daydreamer-riri/bufferline.nvim",
-    branch = "perf/lsp",
+    branch = "perf/t",
     keys = {
       { "gb", "<CMD>BufferLinePick<CR>", mode = { "n" }, desc = "BufferLine Pick" },
     },
