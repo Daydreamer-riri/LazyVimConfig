@@ -1,3 +1,7 @@
+-- ============================================================================
+-- ESLint Configuration
+-- ============================================================================
+
 local eslint_file_types = {
   "javascript",
   "javascriptreact",
@@ -22,7 +26,8 @@ local eslint_file_types = {
   "scss",
 }
 
-local customizations = {
+-- Disable stylistic/formatting rules in ESLint (handled by formatter)
+local eslint_rules_customizations = {
   { rule = "style/*", severity = "off", fixable = true },
   { rule = "format/*", severity = "off", fixable = true },
   { rule = "*-indent", severity = "off", fixable = true },
@@ -35,28 +40,56 @@ local customizations = {
   { rule = "*semi", severity = "off", fixable = true },
 }
 
-vim.g.lazyvim_eslint_auto_format = true
+-- LSP servers that should defer formatting to ESLint
+local lsp_defer_to_eslint = {
+  "vtsls",
+  "cssls",
+  "jsonls",
+  "yamlls",
+  "astro",
+  "marksman",
+  "taplo",
+}
 
--- Check for eslint config
-local eslint_config_files = { "eslint.config.js", "eslint.config.mjs" }
-local root_dir = vim.fn.getcwd()
-local hasEslintConfig = false
+-- ============================================================================
+-- Helper Functions
+-- ============================================================================
 
-for _, filename in ipairs(eslint_config_files) do
-  local config_path = root_dir .. "/" .. filename
-  local stat = vim.uv.fs_stat(config_path)
-  if stat and stat.type == "file" then
-    hasEslintConfig = true
-    break
+-- Check if ESLint config exists in current working directory
+local function has_eslint_config()
+  local config_files = { "eslint.config.js", "eslint.config.mjs" }
+  local root_dir = vim.fn.getcwd()
+
+  for _, filename in ipairs(config_files) do
+    local config_path = root_dir .. "/" .. filename
+    local stat = vim.uv.fs_stat(config_path)
+    if stat and stat.type == "file" then
+      return true
+    end
   end
+
+  return false
 end
 
+local has_eslint = has_eslint_config()
+
+-- Enable ESLint auto-formatting
+vim.g.lazyvim_eslint_auto_format = true
+
+-- ============================================================================
+-- Plugin Configurations
+-- ============================================================================
+
 return {
+  -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        -- CSS Language Server
         cssls = {},
+
+        -- CSS Modules Language Server
         cssmodules_ls = {
           filetypes = {
             "javascript",
@@ -67,24 +100,28 @@ return {
             "typescript.tsx",
           },
         },
+
+        -- ESLint Language Server
         eslint = {
           settings = {
-            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
             workingDirectories = { mode = "auto" },
-            -- Silent the stylistic rules in you IDE, but still auto fix them
-            rulesCustomizations = customizations,
+            rulesCustomizations = eslint_rules_customizations,
           },
           filetypes = eslint_file_types,
         },
+
+        -- YAML Language Server
         yamlls = {
           settings = {
             yaml = {
               format = {
-                enable = not hasEslintConfig,
+                enable = not has_eslint, -- Disable if ESLint handles formatting
               },
             },
           },
         },
+
+        -- Global LSP keymaps
         ["*"] = {
           keys = {
             {
@@ -98,27 +135,18 @@ return {
           },
         },
       },
+
       setup = {
         eslint = function(_, opts)
-          if not hasEslintConfig then
+          if not has_eslint then
             return
           end
 
-          -- Define common LSP types that should defer to eslint for formatting
-          local lspType = {
-            "vtsls",
-            "cssls",
-            "jsonls",
-            "yamlls",
-            "astro",
-            "marksman",
-            "taplo",
-          }
-
+          -- Configure formatting providers when ESLint is available
           Snacks.util.lsp.on(function(bufnr, client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
-            elseif vim.tbl_contains(lspType, client.name) then
+            elseif vim.tbl_contains(lsp_defer_to_eslint, client.name) then
               client.server_capabilities.documentFormattingProvider = false
             end
           end)
@@ -126,25 +154,32 @@ return {
       },
     },
   },
+
+  -- Conform.nvim - Formatter Configuration
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      if hasEslintConfig ~= true then
+      if not has_eslint then
         return opts
       end
-      local function removePrettier(t)
+
+      -- Remove prettier from specific filetypes when ESLint is present
+      local function remove_prettier(formatters)
         return vim.tbl_filter(function(value)
           return value ~= "prettier"
-        end, t)
+        end, formatters)
       end
-      local fts = { "markdown", "markdown.mdx" }
-      for _, ft in ipairs(fts) do
-        opts.formatters_by_ft[ft] = removePrettier(opts.formatters_by_ft[ft])
+
+      local filetypes = { "markdown", "markdown.mdx" }
+      for _, ft in ipairs(filetypes) do
+        opts.formatters_by_ft[ft] = remove_prettier(opts.formatters_by_ft[ft])
       end
 
       return opts
     end,
   },
+
+  -- Rust Tools
   {
     "mrcjkb/rustaceanvim",
     ft = { "rust" },
@@ -159,12 +194,15 @@ return {
           vim.keymap.set("n", "<leader>cR", function()
             vim.cmd.RustLsp("codeAction")
           end, { desc = "Code Action", buffer = bufnr })
+
           vim.keymap.set("n", "<leader>cE", function()
             vim.cmd.RustLsp({ "explainError", "current" })
           end, { desc = "Explain Error", buffer = bufnr })
+
           vim.keymap.set("n", "<leader>ce", function()
             vim.cmd.RustLsp({ "renderDiagnostic", "current" })
           end, { desc = "Render Diagnostic", buffer = bufnr })
+
           vim.keymap.set("n", "<leader>dr", function()
             vim.cmd.RustLsp("debuggables")
           end, { desc = "Rust Debuggables", buffer = bufnr })
