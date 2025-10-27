@@ -37,17 +37,6 @@ local customizations = {
 
 vim.g.lazyvim_eslint_auto_format = true
 
--- Define common LSP types that should defer to eslint for formatting
-local lspType = {
-  "vtsls",
-  "cssls",
-  "jsonls",
-  "yamlls",
-  "astro",
-  "marksman",
-  "taplo",
-}
-
 -- Check for eslint config
 local eslint_config_files = { "eslint.config.js", "eslint.config.mjs" }
 local root_dir = vim.fn.getcwd()
@@ -115,8 +104,18 @@ return {
             return
           end
 
-          ---@diagnostic disable-next-line: undefined-field
-          require("lazyvim.util").lsp.on_attach(function(client, bufnr)
+          -- Define common LSP types that should defer to eslint for formatting
+          local lspType = {
+            "vtsls",
+            "cssls",
+            "jsonls",
+            "yamlls",
+            "astro",
+            "marksman",
+            "taplo",
+          }
+
+          Snacks.util.lsp.on(function(bufnr, client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
             elseif vim.tbl_contains(lspType, client.name) then
