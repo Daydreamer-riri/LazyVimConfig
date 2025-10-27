@@ -96,21 +96,26 @@ return {
             },
           },
         },
-        -- vtsls = {
-        --   root_dir = function()
-        --     local git = require("snacks.git")
-        --     local root = git.get_root()
-        --     -- __AUTO_GENERATED_PRINT_VAR_START__
-        --     print([==[root_dir root:]==], vim.inspect(root)) -- __AUTO_GENERATED_PRINT_VAR_END__
-        --     return root
-        --   end,
-        -- },
+        ["*"] = {
+          keys = {
+            {
+              "<leader>k",
+              function()
+                vim.lsp.buf.hover()
+              end,
+              desc = "Hover",
+            },
+            { "<leader>cR", false },
+          },
+        },
       },
       setup = {
         eslint = function(_, opts)
           if not hasEslintConfig then
             return
           end
+
+          ---@diagnostic disable-next-line: undefined-field
           require("lazyvim.util").lsp.on_attach(function(client, bufnr)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
@@ -152,9 +157,6 @@ return {
       },
       server = {
         on_attach = function(_, bufnr)
-          local keys = require("lazyvim.plugins.lsp.keymaps").get()
-          keys[#keys + 1] = { "<leader>cR", false }
-
           vim.keymap.set("n", "<leader>cR", function()
             vim.cmd.RustLsp("codeAction")
           end, { desc = "Code Action", buffer = bufnr })
@@ -170,6 +172,9 @@ return {
         end,
         default_settings = {
           ["rust-analyzer"] = {
+            keys = {
+              { "<leader>cR", false },
+            },
             diagnostics = {
               experimental = {
                 enable = true,
