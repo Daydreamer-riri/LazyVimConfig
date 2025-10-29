@@ -5,6 +5,9 @@ return {
   {
     "nvim-neotest/neotest",
     opts = {
+      floating = {
+        border = "rounded",
+      },
       adapters = {
         ["neotest-jest"] = {
           jestConfigFile = function(file)
