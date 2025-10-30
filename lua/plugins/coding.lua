@@ -73,7 +73,4 @@ return {
       },
     },
   },
-  {
-    "danymat/neogen",
-  },
 }

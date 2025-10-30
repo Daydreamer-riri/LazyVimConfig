@@ -14,7 +14,6 @@ require("lazy").setup({
     -- coding
     { import = "lazyvim.plugins.extras.coding.mini-comment" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
-    { import = "lazyvim.plugins.extras.coding.neogen" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     -- dap
     { import = "lazyvim.plugins.extras.dap.core" },
