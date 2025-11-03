@@ -124,4 +124,26 @@ return {
       },
     },
   },
+  {
+    "stevenxxiu/neogit",
+    dependencies = {
+      {
+        "m00qek/baleia.nvim",
+        config = function()
+          vim.g.baleia = require("baleia").setup({})
+        end,
+      },
+    },
+    opts = {
+      log_pager = { "delta", "--width", "117" },
+    },
+    keys = {
+      {
+        "<leader>gn",
+        function()
+          require("neogit").open()
+        end,
+      },
+    },
+  },
 }
