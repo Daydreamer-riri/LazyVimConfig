@@ -136,6 +136,7 @@ return {
     },
     opts = {
       log_pager = { "delta", "--width", "117" },
+      disable_context_highlighting = true,
     },
     keys = {
       {
@@ -143,6 +144,14 @@ return {
         function()
           require("neogit").open()
         end,
+        desc = "Open Neogit",
+      },
+      {
+        "<leader>gc",
+        function()
+          require("neogit").open({ "commit" })
+        end,
+        desc = "Open Neogit Commit",
       },
     },
   },
