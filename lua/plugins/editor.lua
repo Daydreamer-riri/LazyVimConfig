@@ -69,18 +69,6 @@ return {
     },
   },
   {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      local npairs = require("nvim-autopairs")
-      npairs.setup({})
-    end,
-  },
-  {
-    "mini.pairs",
-    enabled = false,
-  },
-  {
     "Aasim-A/scrollEOF.nvim",
     event = { "CursorMoved", "WinScrolled" },
     config = true,

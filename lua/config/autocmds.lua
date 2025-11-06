@@ -11,4 +11,11 @@ if _G.IS_WSL ~= true then
   })
 end
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*/.vscode/*.json",
+  callback = function()
+    vim.bo.filetype = "jsonc"
+  end,
+})
+
 require("custom.deferClip").setup()
