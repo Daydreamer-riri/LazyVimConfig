@@ -21,7 +21,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
     { import = "lazyvim.plugins.extras.editor.outline" },
-    { import = "lazyvim.plugins.extras.editor.overseer" },
     { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.editor.snacks_explorer" },
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
@@ -52,9 +51,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ai.copilot-native" },
     { import = "lazyvim.plugins.extras.ai.sidekick" },
 
-    { import = "lazyvim.plugins.extras.vscode" },
-
-    IS_WSL and {} or { import = "lazyvim.plugins.extras.lang.omnisharp" },
     -- -- import/override with your plugins
     { import = "plugins" },
     { import = "colorschemes.rose-pine" },

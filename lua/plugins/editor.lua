@@ -128,12 +128,6 @@ return {
       },
     },
   },
-  {
-    "stevearc/overseer.nvim",
-    opts = {
-      templates = { "builtin", "eslint" },
-    },
-  },
   { "Darazaki/indent-o-matic" },
   {
     "Wansmer/treesj",
@@ -149,10 +143,6 @@ return {
         add = "ys",
         delete = "ds",
         replace = "cs",
-        -- find = ";f",
-        -- find_left = ";F",
-        -- highlight = ";h",
-        -- update_n_lines = ";n",
       },
     },
   },
