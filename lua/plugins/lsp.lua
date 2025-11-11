@@ -179,6 +179,21 @@ return {
     end,
   },
 
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = function(_, opts)
+      opts.linters_by_ft.markdown = {}
+    end,
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      enabled = false,
+    },
+  },
+
   -- Rust Tools
   {
     "mrcjkb/rustaceanvim",
