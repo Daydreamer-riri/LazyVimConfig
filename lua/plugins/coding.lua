@@ -1,5 +1,4 @@
 return {
-  { "dmmulroy/ts-error-translator.nvim" },
   {
     "dmmulroy/tsc.nvim",
     event = "VeryLazy",
