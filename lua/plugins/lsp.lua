@@ -121,6 +121,19 @@ return {
           },
         },
 
+        vtsls = {
+          settings = {
+            typescript = {
+              suggest = {
+                completeFunctionCalls = false,
+              },
+              inlayHints = {
+                variableTypes = { enabled = true },
+              },
+            },
+          },
+        },
+
         -- Global LSP keymaps
         ["*"] = {
           keys = {
