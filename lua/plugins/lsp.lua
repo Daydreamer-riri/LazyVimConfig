@@ -257,4 +257,11 @@ return {
       opts = { diagnostics = { virtual_text = false } },
     },
   },
+
+  {
+    "Daydreamer-riri/catalog-lens.nvim",
+    ---@module 'catalog-lens'
+    ---@type catalog-lens.Config
+    opts = {},
+  },
 }
