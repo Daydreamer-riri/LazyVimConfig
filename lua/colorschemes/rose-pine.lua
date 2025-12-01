@@ -43,7 +43,7 @@ return {
     end,
   },
   {
-    "folke/noice.nvim",
+    "Daydreamer-riri/noice.nvim",
     opts = function(_, opts)
       opts.presets.lsp_doc_border = true
 

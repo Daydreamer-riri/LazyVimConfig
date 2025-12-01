@@ -81,7 +81,7 @@ return {
     end,
   },
   {
-    "folke/noice.nvim",
+    "Daydreamer-riri/noice.nvim",
     lazy = false,
     opts = function(_, opts)
       table.insert(opts.routes, {
