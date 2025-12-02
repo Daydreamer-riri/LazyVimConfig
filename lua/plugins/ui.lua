@@ -83,7 +83,22 @@ return {
   {
     "Daydreamer-riri/noice.nvim",
     lazy = false,
+    ---@type fun(_, opts: NoiceConfig): NoiceConfig
     opts = function(_, opts)
+      opts.markdown = opts.markdown or {}
+      opts.markdown.highlights = opts.markdown.highlights
+        or {
+          ["^#%s+.*"] = "@markup.heading.1.markdown",
+          ["^##%s+.*"] = "@markup.heading.2.markdown",
+          ["^###%s+.*"] = "@markup.heading.3.markdown",
+          ["^####%s+.*"] = "@markup.heading.4.markdown",
+          ["^#####%s+.*"] = "@markup.heading.5.markdown",
+          ["^######%s+.*"] = "@markup.heading.6.markdown",
+
+          ["^%s*[%-%*]%s+"] = "@markup.list",
+          ["^%s*%d+%.%s+"] = "@markup.list",
+        }
+
       table.insert(opts.routes, {
         filter = {
           event = "notify",

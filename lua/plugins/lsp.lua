@@ -130,6 +130,9 @@ return {
               inlayHints = {
                 variableTypes = { enabled = true },
               },
+              experimental = {
+                expandableHover = true,
+              },
             },
           },
         },
