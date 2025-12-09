@@ -86,7 +86,7 @@ return {
         dark_variant = "moon",
         styles = {
           transparency = true,
-          italic = false,
+          -- italic = false,
         },
         highlight_groups = {
           CurSearch = { fg = "base", bg = "leaf", inherit = false },
@@ -95,7 +95,6 @@ return {
           Number = { fg = "love" },
           BlinkCmpLabel = { fg = "subtle" },
           BlinkCmpDoc = { bg = nil },
-          MsgArea = { bg = "overlay", blend = 60 },
         },
       })
 

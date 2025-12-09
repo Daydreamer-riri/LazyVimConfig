@@ -99,6 +99,9 @@ return {
           ["^%s*%d+%.%s+"] = "@markup.list",
         }
 
+      opts.cmdline = opts.cmdline or {}
+      opts.cmdline.view = "cmdline"
+
       table.insert(opts.routes, {
         filter = {
           event = "notify",
