@@ -19,8 +19,16 @@ if vim.fn.has("wsl") ~= 1 then
 end
 
 if vim.g.neovide then
-  vim.o.guifont = "Cascadia Code NF,Cascadia Next SC:h14"
+  vim.o.guifont = "CaskaydiaCove_Nerd_Font:h13"
   vim.g.neovide_theme = "dark"
+  vim.opt.linespace = 4
+
+  vim.g.neovide_title_background_color = "#232136"
+
+  vim.api.nvim_set_keymap("v", "<c-c>", '"y', { noremap = true })
+  vim.api.nvim_set_keymap("c", "<c-v>", '<C-r>"', { noremap = true })
+  vim.api.nvim_set_keymap("i", "<c-v>", '<C-r>"', { noremap = true })
+  vim.api.nvim_set_keymap("t", "<c-v>", '<C-r>"', { noremap = true })
 end
 
 vim.opt.title = true

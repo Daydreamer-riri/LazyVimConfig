@@ -25,6 +25,14 @@ return {
   ---@type fun(_: any, opts:YaziConfig):YaziConfig
   opts = function(_, opts)
     vim.api.nvim_set_hl(0, "YaziFloat", { link = "NormalFloat", default = true })
+    opts.hooks = opts.hooks or {}
+    local backdrop = Snacks.win.new({ width = 0.1, height = 0.1, show = false })
+    opts.hooks.before_opening_window = function()
+      backdrop:show()
+    end
+    opts.hooks.yazi_closed_successfully = function()
+      backdrop:close()
+    end
     return vim.tbl_deep_extend("force", opts, {
       -- if you want to open yazi instead of netrw, see below for more info
       open_for_directories = false,
