@@ -186,7 +186,8 @@ return {
     opts = {
       trailing_stiffness = 0.3, -- 0.25     [0, 1]
       distance_stop_animating = 0.2, -- 0.1      > 0
-      hide_target_hack = false, -- true     boolean
+      hide_target_hack = true, -- true     boolean
+      never_draw_over_target = true,
     },
   },
 }
