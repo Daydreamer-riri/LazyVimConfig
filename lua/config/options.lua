@@ -2,22 +2,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-if vim.fn.has("wsl") ~= 1 then
-  if vim.env.CURRENT_SHELL == "pwsh" then
-    vim.opt.shell = "pwsh.exe"
-    vim.opt.shellxquote = ""
-    vim.opt.shellcmdflag = "-nologo -noprofile -ExecutionPolicy RemoteSigned -command"
-  end
-
-  if vim.env.NU_VERSION then
-    vim.opt.shell = "nu.exe"
-    vim.opt.shellxquote = ""
-    vim.opt.shellquote = ""
-    vim.opt.shellcmdflag = "-c"
-    -- vim.o.shellslash = true
-  end
-end
-
 if vim.g.neovide then
   vim.o.guifont = "CaskaydiaCove_Nerd_Font:h13"
   vim.g.neovide_theme = "dark"
