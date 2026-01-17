@@ -14,6 +14,12 @@ local function sync_from()
 end
 
 function M.setup()
+  if IS_MAC then
+    vim.opt.clipboard = "unnamedplus"
+    return
+  end
+
+  vim.opt.clipboard = ""
   vim.g.clipboard = {
     name = "noop",
     copy = {
