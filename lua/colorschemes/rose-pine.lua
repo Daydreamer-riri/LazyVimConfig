@@ -16,21 +16,32 @@ return {
   {
     "Daydreamer-riri/bufferline.nvim",
     opts = function(_, opts)
+      local theme = vim.o.background
+
       local bufferline = require("bufferline")
       opts.options.separator_style = { "", "" }
       opts.options.tab_size = 20
       opts.options.style_preset = bufferline.style_preset.no_italic
 
       local get_hl = require("custom.hl-bufferline").hl
+      local p = require("rose-pine.palette")
+      local bufferlineC = {
+        moon = {
+          active_bg = "#3a3554",
+          inactive_bg = "#232136",
+        },
+        dawn = {
+          active_bg = "#f4e9de",
+          inactive_bg = "#faf4ed",
+          bg = "#faf4ed",
+        },
+      }
 
       opts.highlights = vim.tbl_deep_extend(
         "force",
         require("rose-pine.plugins.bufferline"),
         get_hl({
-          c = {
-            active_bg = "#3a3554",
-            inactive_bg = "#232136",
-          },
+          c = theme == "light" and bufferlineC.dawn or bufferlineC.moon,
         }),
         {
           buffer_selected = {
@@ -53,8 +64,9 @@ return {
   {
     "sphamba/smear-cursor.nvim",
     opts = function(_, opts)
-      opts.cursor_color = "#8d87a3"
-      opts.legacy_computing_symbols_support = true
+      local theme = vim.o.background
+      opts.cursor_color = theme == "light" and "#9893a5" or "#8d87a3"
+      opts.legacy_computing_symbols_support = theme ~= "light"
 
       return opts
     end,
@@ -83,9 +95,9 @@ return {
       })
 
       opts = vim.tbl_deep_extend("force", opts, {
-        dark_variant = "moon",
+        dark_variant = "dawn",
         styles = {
-          transparency = true,
+          -- transparency = not vim.g.neovide,
           -- italic = false,
         },
         highlight_groups = {
