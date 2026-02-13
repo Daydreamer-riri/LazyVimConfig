@@ -95,9 +95,9 @@ return {
       })
 
       opts = vim.tbl_deep_extend("force", opts, {
-        dark_variant = "dawn",
+        dark_variant = "moon",
         styles = {
-          -- transparency = not vim.g.neovide,
+          transparency = not (vim.g.neovide or vim.o.background == "light"),
           -- italic = false,
         },
         highlight_groups = {
